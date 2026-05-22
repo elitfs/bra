@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 <style>
-/* ══════════════════════════════════════════════════
-   GLOBAL RESET & DESIGN TOKENS
-══════════════════════════════════════════════════ */
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --n:#0a1628;--n2:#0f1f3d;--n3:#162747;--n4:#1c3057;
@@ -33,9 +32,6 @@
 html{font-size:15px}
 body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;line-height:1.6}
 
-/* ══════════════════════════════════════════════════
-   LOGIN PAGE
-══════════════════════════════════════════════════ */
 #login-page{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:100vh;padding:2rem;
@@ -125,9 +121,6 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .login-dot:nth-child(3){background:var(--t)}
 .mini-spin{width:14px;height:14px;border:2px solid rgba(10,22,40,.3);border-top-color:var(--n);border-radius:50%;animation:sp .7s linear infinite;display:inline-block;}
 
-/* ══════════════════════════════════════════════════
-   MAIN APP
-══════════════════════════════════════════════════ */
 #app{display:none}
 #bar{
   background:var(--n2);border-bottom:1px solid var(--b);
@@ -144,14 +137,11 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .user-chip svg{color:var(--t)}
 .logout-btn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--b2);border-radius:var(--r);padding:6px 14px;font-size:12px;font-family:var(--mo);color:var(--tx3);cursor:pointer;transition:all .2s;}
 .logout-btn:hover{background:rgba(224,82,82,.1);border-color:rgba(224,82,82,.3);color:var(--rd)}
-/* Admin button in navbar */
+
 .admin-nav-btn{display:none;align-items:center;gap:6px;background:rgba(0,201,167,.08);border:1px solid rgba(0,201,167,.25);border-radius:var(--r);padding:6px 14px;font-size:12px;font-family:var(--mo);color:var(--t);cursor:pointer;transition:all .2s;}
 .admin-nav-btn:hover{background:rgba(0,201,167,.18);}
 .admin-nav-btn.visible{display:flex;}
 
-/* ══════════════════════════════════════════════════
-   ADMIN PANEL MODAL
-══════════════════════════════════════════════════ */
 #admin-modal{
   display:none;position:fixed;inset:0;z-index:300;
   background:rgba(10,22,40,.85);backdrop-filter:blur(6px);
@@ -173,7 +163,6 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .admin-close:hover{background:rgba(224,82,82,.1);border-color:rgba(224,82,82,.3);color:var(--rd)}
 .admin-body{padding:1.5rem 2rem;overflow-y:auto;flex:1;}
 
-/* User table */
 .admin-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.75rem;}
 .add-user-btn{
   background:var(--t);border:none;border-radius:var(--r);
@@ -204,7 +193,6 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .action-btn:hover{background:var(--sf2);color:var(--tx);}
 .action-btn.danger:hover{background:rgba(224,82,82,.1);border-color:rgba(224,82,82,.3);color:var(--rd);}
 
-/* Admin message */
 .admin-msg{
   padding:10px 14px;border-radius:var(--r);font-size:12px;font-family:var(--mo);
   margin-bottom:1rem;display:none;
@@ -212,7 +200,6 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .admin-msg.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--gr);display:block;}
 .admin-msg.err{background:rgba(224,82,82,.1);border:1px solid rgba(224,82,82,.3);color:var(--rd);display:block;}
 
-/* User form modal */
 #user-form-modal{
   display:none;position:fixed;inset:0;z-index:400;
   background:rgba(10,22,40,.9);backdrop-filter:blur(6px);
@@ -250,9 +237,6 @@ body{font-family:var(--sa);background:var(--n);color:var(--tx);min-height:100vh;
 .form-err{font-size:12px;color:var(--rd);font-family:var(--mo);margin-top:.75rem;display:none;}
 .form-err.show{display:block;}
 
-/* ══════════════════════════════════════════════════
-   MAIN APP CHROME
-══════════════════════════════════════════════════ */
 #main{max-width:1140px;margin:0 auto;padding:2.5rem 1.5rem 0}
 #stp{display:flex;align-items:center;margin-bottom:2.5rem}
 .si{display:flex;align-items:center;gap:10px;font-size:12px;font-family:var(--mo);color:var(--tx3);transition:color .3s}
@@ -376,9 +360,6 @@ tbody tr:hover{background:var(--sf)}
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     LOGIN PAGE
-══════════════════════════════════════════════════ -->
 <div id="login-page">
   <div class="login-card">
     <div class="login-brand">
@@ -431,9 +412,6 @@ tbody tr:hover{background:var(--sf)}
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     ADMIN PANEL MODAL
-══════════════════════════════════════════════════ -->
 <div id="admin-modal">
   <div class="admin-panel">
     <div class="admin-head">
@@ -470,9 +448,6 @@ tbody tr:hover{background:var(--sf)}
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     USER FORM MODAL (Add / Edit)
-══════════════════════════════════════════════════ -->
 <div id="user-form-modal">
   <div class="user-form-card">
     <div class="form-title" id="form-title">Add User</div>
@@ -510,9 +485,6 @@ tbody tr:hover{background:var(--sf)}
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     MAIN APPLICATION
-══════════════════════════════════════════════════ -->
 <div id="app">
 
   <div id="bar">
@@ -548,7 +520,7 @@ tbody tr:hover{background:var(--sf)}
     </div>
     <div id="err"></div>
 
-    <!-- Step 1 -->
+    
     <div class="pan on ani" id="p1">
       <div class="card">
         <div class="ct">Upload source files</div>
@@ -577,7 +549,7 @@ tbody tr:hover{background:var(--sf)}
       </div>
     </div>
 
-    <!-- Step 2 -->
+    
     <div class="pan ani" id="p2">
       <div class="card">
         <div class="ct">Date format settings</div>
@@ -600,7 +572,7 @@ tbody tr:hover{background:var(--sf)}
       </div>
     </div>
 
-    <!-- Step 3 -->
+    
     <div class="pan ani" id="p3">
       <div id="res">
         <div class="rh">
@@ -650,102 +622,95 @@ tbody tr:hover{background:var(--sf)}
   <div id="ft">&copy; <span id="yr"></span> <span class="hl">Michael Felix Happy</span> &nbsp;·&nbsp; IBRAP &nbsp;·&nbsp; All rights reserved</div>
   <div id="ld"><div class="spn"></div><div class="ldt" id="ldm">Processing...</div></div>
 
-</div><!-- /#app -->
+</div>
 
 <script>
 'use strict';
-const API_BASE = 'https://eis-recbackend.onrender.com/api';
-let currentUser = null;
-let authToken   = null;
-
-function getToken()  { return authToken; }
-function setToken(t) { authToken = t; sessionStorage.setItem('eis_token', t); }
-function clearToken(){ authToken = null; sessionStorage.removeItem('eis_token'); }
+const _0xAPB_ = 'https://eis-recbackend.onrender.com/api';
+let _0xa1b2 = null;
+let _0xb2c3   = null;
+function _0xc3d4()  { return _0xb2c3; }
+function _0xd4e5(t) { _0xb2c3 = t; sessionStorage.setItem('eis_token', t); }
+function _0xe5f6(){ _0xb2c3 = null; sessionStorage.removeItem('eis_token'); }
 async function _0xe10d(path, opts = {}) {
 const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
-const tok = getToken();
+const tok = _0xc3d4();
 if (tok) headers['Authorization'] = 'Bearer ' + tok;
-const res = await fetch(API_BASE + path, { ...opts, headers });
+const res = await fetch(_0xAPB_ + path, { ...opts, headers });
 const data = await res.json();
 if (!res.ok) throw new Error(data.error || 'Request failed');
 return data;
 }
-const loginPage = document.getElementById('login-page');
-const appDiv    = document.getElementById('app');
-const loginBtn  = document.getElementById('login-btn');
-const loginErr  = document.getElementById('login-err');
-const usrInput  = document.getElementById('usr');
-const pwdInput  = document.getElementById('pwd');
-
+const _0xf601 = document.getElementById('login-page');
+const _0x0712    = document.getElementById('app');
+const _0x1823  = document.getElementById('login-btn');
+const _0x2934  = document.getElementById('login-err');
+const _0x3a45  = document.getElementById('usr');
+const _0x4b56  = document.getElementById('pwd');
 function _0x4773(msg) {
-loginErr.textContent = '⚠ ' + (msg || 'Invalid username or password. Please try again.');
-loginErr.classList.add('show');
-pwdInput.value = '';
-pwdInput.focus();
+_0x2934.textContent = '⚠ ' + (msg || 'Invalid username or password. Please try again.');
+_0x2934.classList.add('show');
+_0x4b56.value = '';
+_0x4b56.focus();
 }
-
 function _0xd0fc(user) {
-currentUser = user;
+_0xa1b2 = user;
 document.getElementById('user-display').textContent = user.name;
 const adminBtn = document.getElementById('admin-nav-btn');
 if (user.role === 'admin') adminBtn.classList.add('visible');
 else adminBtn.classList.remove('visible');
-loginPage.style.display = 'none';
-appDiv.style.display = 'block';
+_0xf601.style.display = 'none';
+_0x0712.style.display = 'block';
 }
-
-loginBtn.addEventListener('click', async () => {
-const u = usrInput.value.trim();
-const p = pwdInput.value;
+_0x1823.addEventListener('click', async () => {
+const u = _0x3a45.value.trim();
+const p = _0x4b56.value;
 if (!u || !p) { _0x4773('Please enter both username and password.'); return; }
-
-loginBtn.classList.add('loading');
-loginBtn.disabled = true;
-loginErr.classList.remove('show');
-
+_0x1823.classList.add('loading');
+_0x1823.disabled = true;
+_0x2934.classList.remove('show');
 try {
 const data = await _0xe10d('/auth/login', {
 method: 'POST',
 body: JSON.stringify({ username: u, password: p }),
 });
-setToken(data.token);
+_0xd4e5(data.token);
 _0xd0fc(data.user);
 } catch (err) {
 _0x4773(err.message || 'Invalid username or password.');
 } finally {
-loginBtn.classList.remove('loading');
-loginBtn.disabled = false;
+_0x1823.classList.remove('loading');
+_0x1823.disabled = false;
 }
 });
-
-[usrInput, pwdInput].forEach(inp => {
-inp.addEventListener('keydown', e => { if (e.key === 'Enter') loginBtn.click(); });
+[_0x3a45, _0x4b56].forEach(inp => {
+inp.addEventListener('keydown', e => { if (e.key === 'Enter') _0x1823.click(); });
 });
-const eyeBtn  = document.getElementById('eye-btn');
-const eyeShow = document.getElementById('eye-show');
-const eyeHide = document.getElementById('eye-hide');
-eyeBtn.addEventListener('click', () => {
-const show = pwdInput.type === 'password';
-pwdInput.type = show ? 'text' : 'password';
-eyeShow.style.display = show ? 'none' : '';
-eyeHide.style.display = show ? '' : 'none';
+const _0x5c67  = document.getElementById('eye-btn');
+const _0x6d78 = document.getElementById('eye-show');
+const _0x7e89 = document.getElementById('eye-hide');
+_0x5c67.addEventListener('click', () => {
+const show = _0x4b56.type === 'password';
+_0x4b56.type = show ? 'text' : 'password';
+_0x6d78.style.display = show ? 'none' : '';
+_0x7e89.style.display = show ? '' : 'none';
 });
 (async () => {
 const saved = sessionStorage.getItem('eis_token');
 if (saved) {
-setToken(saved);
+_0xd4e5(saved);
 try {
 const data = await _0xe10d('/auth/me');
 _0xd0fc(data.user);
-} catch { clearToken(); }
+} catch { _0xe5f6(); }
 }
 })();
 document.getElementById('logout-btn').addEventListener('click', () => {
 if (!confirm('Sign out of EIS Bank Recon?')) return;
-clearToken();
-currentUser = null;
-ST.bsFile = ST.glFile = ST.result = null;
-ST.bsRaw = ST.glRaw = [];
+_0xe5f6();
+_0xa1b2 = null;
+_0xST__.bsFile = _0xST__.glFile = _0xST__.result = null;
+_0xST__._0xb2cd6 = _0xST__._0xc3de7 = [];
 ['bb','gb'].forEach(id => { const b = document.getElementById(id); if(b) b.classList.remove('ok','drag'); });
 ['bn','gn','bc','gc'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = ''; });
 ['bpv','gpv'].forEach(id => { const el = document.getElementById(id); if(el) el.innerHTML = ''; });
@@ -754,33 +719,30 @@ if(nxt) nxt.disabled = true;
 const res = document.getElementById('res');
 if(res) res.style.display = 'none';
 document.getElementById('admin-nav-btn').classList.remove('visible');
-usrInput.value = ''; pwdInput.value = '';
-loginErr.classList.remove('show');
+_0x3a45.value = ''; _0x4b56.value = '';
+_0x2934.classList.remove('show');
 _0xadcf(1);
 _0xcfeb('EIS Bank Recon — Ready');
-appDiv.style.display = 'none';
-loginPage.style.display = 'flex';
-usrInput.focus();
+_0x0712.style.display = 'none';
+_0xf601.style.display = 'flex';
+_0x3a45.focus();
 });
-const adminModal     = document.getElementById('admin-modal');
-const userFormModal  = document.getElementById('user-form-modal');
-let editingUserId    = null;
-
+const _0x8f9a     = document.getElementById('admin-modal');
+const _0x90ab  = document.getElementById('user-form-modal');
+let _0x293d4    = null;
 document.getElementById('admin-nav-btn').addEventListener('click', () => {
-adminModal.classList.add('open');
+_0x8f9a.classList.add('open');
 _0xf21e();
 });
 document.getElementById('admin-close-btn').addEventListener('click', () => {
-adminModal.classList.remove('open');
+_0x8f9a.classList.remove('open');
 });
-
 function _0x3662(msg, type = 'ok') {
 const el = document.getElementById('admin-msg');
 el.textContent = msg;
 el.className = 'admin-msg ' + type;
 setTimeout(() => { el.className = 'admin-msg'; }, 4000);
 }
-
 async function _0xf21e() {
 const tbody = document.getElementById('admin-users-tbody');
 tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--tx3);font-family:var(--mo);font-size:12px;">Loading...</td></tr>';
@@ -795,10 +757,10 @@ tbody.innerHTML = data.users.map(u => `
 <td style="font-family:var(--mo);font-size:12px;">${u.username}</td>
 <td>${u.name}</td>
 <td><span class="role-badge ${u.role}">${u.role}</span></td>
-<td><span class="status-dot ${u.isActive ? 'active' : 'inactive'}"></span> ${u.isActive ? 'Active' : 'Inactive'}</td>
+<td><span class="status-dot ${u._0x182c3 ? 'active' : 'inactive'}"></span> ${u._0x182c3 ? 'Active' : 'Inactive'}</td>
 <td style="font-family:var(--mo);font-size:11px;color:var(--tx3);">${u.lastLogin ? new Date(u.lastLogin).toLocaleDateString('en-GB') : '—'}</td>
 <td style="display:flex;gap:6px;">
-<button class="action-btn" onclick="_0x1440('${u._id}','${u.username}','${u.name}','${u.role}',${u.isActive})">Edit</button>
+<button class="action-btn" onclick="_0x1440('${u._id}','${u.username}','${u.name}','${u.role}',${u._0x182c3})">Edit</button>
 <button class="action-btn danger" onclick="deleteUser('${u._id}','${u.username}')">Delete</button>
 </td>
 </tr>
@@ -808,9 +770,8 @@ tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;col
 }
 }
 document.getElementById('add-user-btn').addEventListener('click', () => _0x032f());
-
 function _0x032f() {
-editingUserId = null;
+_0x293d4 = null;
 document.getElementById('form-title').textContent = 'Add New User';
 document.getElementById('f-username').value = '';
 document.getElementById('f-username').disabled = false;
@@ -822,11 +783,10 @@ document.getElementById('f-role').value = 'user';
 document.getElementById('f-status-field').style.display = 'none';
 document.getElementById('form-err').className = 'form-err';
 document.getElementById('form-submit-btn').textContent = 'Create User';
-userFormModal.classList.add('open');
+_0x90ab.classList.add('open');
 }
-
-function _0x1440(id, username, name, role, isActive) {
-editingUserId = id;
+function _0x1440(id, username, name, role, _0x182c3) {
+_0x293d4 = id;
 document.getElementById('form-title').textContent = 'Edit User';
 document.getElementById('f-username').value = username;
 document.getElementById('f-username').disabled = true;
@@ -836,35 +796,31 @@ document.getElementById('f-password').placeholder = 'Leave blank to keep current
 document.getElementById('f-pwd-hint').style.display = '';
 document.getElementById('f-role').value = role;
 document.getElementById('f-status-field').style.display = '';
-document.getElementById('f-status').value = String(isActive);
+document.getElementById('f-status').value = String(_0x182c3);
 document.getElementById('form-err').className = 'form-err';
 document.getElementById('form-submit-btn').textContent = 'Save Changes';
-userFormModal.classList.add('open');
+_0x90ab.classList.add('open');
 }
-
 function _0x2551() {
-userFormModal.classList.remove('open');
-editingUserId = null;
+_0x90ab.classList.remove('open');
+_0x293d4 = null;
 }
 document.getElementById('form-cancel-btn').addEventListener('click', _0x2551);
-
 document.getElementById('form-submit-btn').addEventListener('click', async () => {
 const btn = document.getElementById('form-submit-btn');
 const errEl = document.getElementById('form-err');
 errEl.className = 'form-err';
-
 const name     = document.getElementById('f-name').value.trim();
 const password = document.getElementById('f-password').value;
 const role     = document.getElementById('f-role').value;
-const isActive = document.getElementById('f-status').value === 'true';
-
+const _0x182c3 = document.getElementById('f-status').value === 'true';
 btn.disabled = true;
 btn.textContent = 'Saving...';
 try {
-if (editingUserId) {
-const body = { name, role, isActive };
+if (_0x293d4) {
+const body = { name, role, _0x182c3 };
 if (password) body.password = password;
-await _0xe10d('/admin/users/' + editingUserId, { method: 'PATCH', body: JSON.stringify(body) });
+await _0xe10d('/admin/users/' + _0x293d4, { method: 'PATCH', body: JSON.stringify(body) });
 _0x3662('User updated successfully.');
 } else {
 const username = document.getElementById('f-username').value.trim();
@@ -878,10 +834,9 @@ errEl.textContent = err.message;
 errEl.className = 'form-err show';
 } finally {
 btn.disabled = false;
-btn.textContent = editingUserId ? 'Save Changes' : 'Create User';
+btn.textContent = _0x293d4 ? 'Save Changes' : 'Create User';
 }
 });
-
 async function deleteUser(id, username) {
 if (!confirm(`Permanently delete user "${username}"? This cannot be undone.`)) return;
 try {
@@ -896,7 +851,6 @@ const _0xd00c   = 0.005;
 const _0xe11d  = 7;
 const SERIAL_MIN = 36526;
 const SERIAL_MAX = 62091;
-
 const _0x5884 = new Set([
 'THE','AND','FOR','FROM','TO','IN','OF','ON','AT','BY','IS','A','AN','WITH','VIA',
 'REF','INFO','IFO','FRM','BG','BNG','BGT','NIP','TRF','MOB','PAN','PAC',
@@ -907,7 +861,6 @@ const _0x5884 = new Set([
 'BAL','BALANCE','DR','CR','ACC','ACCT','ACCOUNT'
 ]);
 const _0xf22e = { jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12 };
-
 function _0x3c4d(raw, fmt) {
 if (raw === null || raw === undefined || raw === '') return null;
 if (raw instanceof Date) return isNaN(raw.getTime()) ? null : _0x6f8b(raw);
@@ -938,7 +891,6 @@ const dt = new Date(y, m - 1, d);
 if (isNaN(dt.getTime()) || dt.getMonth() !== m - 1) return null;
 return dt;
 }
-
 function _0x5e6f(s) {
 const re = /^(\d{1,2})[\s\-\/]+([A-Za-z]{3,9})[\s\-\/,]+(\d{2,4})$|^([A-Za-z]{3,9})[\s\-\/,]+(\d{1,2})[\s\-\/,]+(\d{2,4})$/;
 const match = s.match(re);
@@ -951,7 +903,6 @@ if (y < 100) y += 2000;
 const dt = new Date(y, mn - 1, d);
 return isNaN(dt.getTime()) ? null : dt;
 }
-
 function _0x6f8b(d)   { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 function _0x7a9c(a,b) { return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth(); }
 function _0x8bad(d)     { if(!d) return ''; const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return `${String(d.getDate()).padStart(2,'0')}-${mo[d.getMonth()]}-${d.getFullYear()}`; }
@@ -999,144 +950,135 @@ else if (glUp.includes(tok)&&isNum) hits+=3;
 }
 return hits;
 }
-
 function _0x1e2f(kw, dd) { return kw*10000-dd; }
-function _0x7a8b(rawRows, fmt, sheetLabel, audit) {
+function _0x7a8b(_0x90ab4, fmt, _0xa1bc5, _0x2934d) {
 let start=-1;
-for (let i=0;i<rawRows.length;i++) {
-const row=rawRows[i]; if(!row||!row.length) continue;
+for (let i=0;i<_0x90ab4.length;i++) {
+const row=_0x90ab4[i]; if(!row||!row.length) continue;
 const cell=row[0]; if(cell===''||cell===null||cell===undefined) continue;
 if (_0x3c4d(cell,fmt)) { start=i; break; }
 }
 if (start<0) return [];
 const data=[];
-for (let i=start;i<rawRows.length;i++) {
-const row=rawRows[i]; if(!row||!row.length) continue;
+for (let i=start;i<_0x90ab4.length;i++) {
+const row=_0x90ab4[i]; if(!row||!row.length) continue;
 const cell=row[0]; if(cell===''||cell===null||cell===undefined) continue;
 const dt=_0x3c4d(cell,fmt);
 if (!dt) {
 const s=String(cell);
 if (s&&!/^(date|narration|amount|balance|description|particulars|ref|s\/n|#)/i.test(s))
-audit.push({sheet:sheetLabel,row:i+1,original:s,parsed:'',comment:'PARSE FAILED'});
+_0x2934d.push({sheet:_0xa1bc5,row:i+1,original:s,parsed:'',comment:'PARSE FAILED'});
 continue;
 }
 if (data.length>0) {
 const prev=data[data.length-1].date;
 if (!_0x7a9c(dt,prev)&&Math.abs(dt-prev)/86400000>60)
-audit.push({sheet:sheetLabel,row:i+1,original:String(cell),parsed:_0x8bad(dt),comment:'NOTE – LARGE DATE GAP'});
+_0x2934d.push({sheet:_0xa1bc5,row:i+1,original:String(cell),parsed:_0x8bad(dt),comment:'NOTE – LARGE DATE GAP'});
 }
-audit.push({sheet:sheetLabel,row:i+1,original:String(cell),parsed:_0x8bad(dt),comment:'PARSED OK'});
+_0x2934d.push({sheet:_0xa1bc5,row:i+1,original:String(cell),parsed:_0x8bad(dt),comment:'PARSED OK'});
 data.push({date:dt,narr:String(row[1]||'').trim(),dr:_0x5e7a(row[2]),cr:_0x5e7a(row[3]),bal:_0x5e7a(row[4]),used:false});
 }
 return data;
 }
-function _0x1a2b(bsRaw, glRaw, bsFmt, glFmt) {
-const audit=[];
-const bs=_0x7a8b(bsRaw,bsFmt,'Bank Statement',audit);
-const gl=_0x7a8b(glRaw,glFmt,'GL Account',audit);
-
+function _0x1a2b(_0xb2cd6, _0xc3de7, _0xd4ef8, _0xe5f09) {
+const _0x2934d=[];
+const bs=_0x7a8b(_0xb2cd6,_0xd4ef8,'Bank Statement',_0x2934d);
+const gl=_0x7a8b(_0xc3de7,_0xe5f09,'GL Account',_0x2934d);
 function aTol(amt, kw) { return kw>=4 ? Math.max(_0xd00c,amt*0.0005) : _0xd00c; }
-
-function _0x3a4b(srcRows,srcKey,tgtRows,tgtKey,dateDays,minKw) {
-const pairs=[];
-for (let i=0;i<srcRows.length;i++) {
-if (srcRows[i].used) continue;
-const sAmt=srcRows[i][srcKey]; if (sAmt<_0xd00c) continue;
-for (let j=0;j<tgtRows.length;j++) {
-if (tgtRows[j].used) continue;
-const tAmt=tgtRows[j][tgtKey];
-const kw=_0x9c0d(tgtRows[j].narr,srcRows[i].narr);
-if (kw<minKw) continue;
+function _0x3a4b(_0x3a45e,_0x5c670,_0x4b56f,_0x6d781,_0x7e892,_0x8f9a3) {
+const _0x1823c=[];
+for (let i=0;i<_0x3a45e.length;i++) {
+if (_0x3a45e[i].used) continue;
+const sAmt=_0x3a45e[i][_0x5c670]; if (sAmt<_0xd00c) continue;
+for (let j=0;j<_0x4b56f.length;j++) {
+if (_0x4b56f[j].used) continue;
+const tAmt=_0x4b56f[j][_0x6d781];
+const kw=_0x9c0d(_0x4b56f[j].narr,_0x3a45e[i].narr);
+if (kw<_0x8f9a3) continue;
 if (Math.abs(tAmt-sAmt)>aTol(sAmt,kw)) continue;
-const dd=Math.abs(srcRows[i].date-tgtRows[j].date)/86400000;
-if (!_0x7a9c(srcRows[i].date,tgtRows[j].date)&&dd>dateDays) continue;
-pairs.push({i,j,kw,dd,score:_0x1e2f(kw,dd)});
+const dd=Math.abs(_0x3a45e[i].date-_0x4b56f[j].date)/86400000;
+if (!_0x7a9c(_0x3a45e[i].date,_0x4b56f[j].date)&&dd>_0x7e892) continue;
+_0x1823c.push({i,j,kw,dd,score:_0x1e2f(kw,dd)});
 }
 }
-pairs.sort((a,b)=>b.score-a.score);
-return pairs;
+_0x1823c.sort((a,b)=>b.score-a.score);
+return _0x1823c;
 }
-
-function _0xcffb(pairs,srcRows,srcKey,tgtRows,tgtKey,out,pass) {
+function _0xcffb(_0x1823c,_0x3a45e,_0x5c670,_0x4b56f,_0x6d781,out,pass) {
 const uS=new Set(),uT=new Set();
-for (const c of pairs) {
+for (const c of _0x1823c) {
 if (uS.has(c.i)||uT.has(c.j)) continue;
 const qual=c.kw>=4?'Strong Match (Ref#)':c.kw>=2?'Strong Match':c.kw>=1?'Keyword Match':'Amount & Date Match';
 out.push({
-bsDate:_0x8bad(srcRows[c.i].date),bsAmt:srcRows[c.i][srcKey],bsNarr:srcRows[c.i].narr,
-glDate:_0x8bad(tgtRows[c.j].date),glAmt:tgtRows[c.j][tgtKey],glNarr:tgtRows[c.j].narr,
+bsDate:_0x8bad(_0x3a45e[c.i].date),bsAmt:_0x3a45e[c.i][_0x5c670],bsNarr:_0x3a45e[c.i].narr,
+glDate:_0x8bad(_0x4b56f[c.j].date),glAmt:_0x4b56f[c.j][_0x6d781],glNarr:_0x4b56f[c.j].narr,
 dateDiff:Math.round(c.dd),kwHits:c.kw,
 quality:qual+(pass?` [P${pass}]`:'')
 });
 uS.add(c.i); uT.add(c.j);
-srcRows[c.i].used=true; tgtRows[c.j].used=true;
+_0x3a45e[c.i].used=true; _0x4b56f[c.j].used=true;
 }
 }
-
-function _0x5c6d(srcRows,srcKey,tgtRows,tgtKey,out) {
-for (let i=0;i<srcRows.length;i++) {
-if (srcRows[i].used) continue;
-const sAmt=srcRows[i][srcKey]; if (sAmt<_0xd00c) continue;
+function _0x5c6d(_0x3a45e,_0x5c670,_0x4b56f,_0x6d781,out) {
+for (let i=0;i<_0x3a45e.length;i++) {
+if (_0x3a45e[i].used) continue;
+const sAmt=_0x3a45e[i][_0x5c670]; if (sAmt<_0xd00c) continue;
 let found=false;
-for (let j=0;j<tgtRows.length&&!found;j++) {
-if (tgtRows[j].used) continue;
-const a1=tgtRows[j][tgtKey]; if (a1>=sAmt||a1<_0xd00c) continue;
-for (let k=j+1;k<tgtRows.length&&!found;k++) {
-if (tgtRows[k].used) continue;
-const a2=tgtRows[k][tgtKey];
+for (let j=0;j<_0x4b56f.length&&!found;j++) {
+if (_0x4b56f[j].used) continue;
+const a1=_0x4b56f[j][_0x6d781]; if (a1>=sAmt||a1<_0xd00c) continue;
+for (let k=j+1;k<_0x4b56f.length&&!found;k++) {
+if (_0x4b56f[k].used) continue;
+const a2=_0x4b56f[k][_0x6d781];
 if (Math.abs(a1+a2-sAmt)>Math.max(_0xd00c,sAmt*0.001)) continue;
-const dd1=Math.abs(srcRows[i].date-tgtRows[j].date)/86400000;
-const dd2=Math.abs(srcRows[i].date-tgtRows[k].date)/86400000;
+const dd1=Math.abs(_0x3a45e[i].date-_0x4b56f[j].date)/86400000;
+const dd2=Math.abs(_0x3a45e[i].date-_0x4b56f[k].date)/86400000;
 if (dd1>14||dd2>14) continue;
-if (!_0x7a9c(srcRows[i].date,tgtRows[j].date)&&dd1>7) continue;
-if (!_0x7a9c(srcRows[i].date,tgtRows[k].date)&&dd2>7) continue;
-const kw1=_0x9c0d(tgtRows[j].narr,srcRows[i].narr);
-const kw2=_0x9c0d(tgtRows[k].narr,srcRows[i].narr);
+if (!_0x7a9c(_0x3a45e[i].date,_0x4b56f[j].date)&&dd1>7) continue;
+if (!_0x7a9c(_0x3a45e[i].date,_0x4b56f[k].date)&&dd2>7) continue;
+const kw1=_0x9c0d(_0x4b56f[j].narr,_0x3a45e[i].narr);
+const kw2=_0x9c0d(_0x4b56f[k].narr,_0x3a45e[i].narr);
 if (kw1+kw2<1) continue;
-[{r:tgtRows[j],a:a1,d:Math.round(dd1),kw:kw1},{r:tgtRows[k],a:a2,d:Math.round(dd2),kw:kw2}].forEach(x=>{
-out.push({bsDate:_0x8bad(srcRows[i].date),bsAmt:x.a,bsNarr:srcRows[i].narr+' [SPLIT]',
+[{r:_0x4b56f[j],a:a1,d:Math.round(dd1),kw:kw1},{r:_0x4b56f[k],a:a2,d:Math.round(dd2),kw:kw2}].forEach(x=>{
+out.push({bsDate:_0x8bad(_0x3a45e[i].date),bsAmt:x.a,bsNarr:_0x3a45e[i].narr+' [SPLIT]',
 glDate:_0x8bad(x.r.date),glAmt:x.a,glNarr:x.r.narr,dateDiff:x.d,kwHits:x.kw,quality:'Split Match'});
 });
-srcRows[i].used=tgtRows[j].used=tgtRows[k].used=true; found=true;
+_0x3a45e[i].used=_0x4b56f[j].used=_0x4b56f[k].used=true; found=true;
 }
 }
 }
 }
-
-const matchedOut=[],matchedIn=[];
-_0xcffb(_0x3a4b(bs,'dr',gl,'cr',_0xe11d,0),bs,'dr',gl,'cr',matchedOut,'');
-_0xcffb(_0x3a4b(bs,'dr',gl,'cr',14,1),      bs,'dr',gl,'cr',matchedOut,'2');
-_0xcffb(_0x3a4b(bs,'dr',gl,'cr',365,4),     bs,'dr',gl,'cr',matchedOut,'3');
-_0x5c6d(bs,'dr',gl,'cr',matchedOut);
-_0xcffb(_0x3a4b(bs,'cr',gl,'dr',_0xe11d,0),bs,'cr',gl,'dr',matchedIn,'');
-_0xcffb(_0x3a4b(bs,'cr',gl,'dr',14,1),      bs,'cr',gl,'dr',matchedIn,'2');
-_0xcffb(_0x3a4b(bs,'cr',gl,'dr',365,4),     bs,'cr',gl,'dr',matchedIn,'3');
-_0x5c6d(bs,'cr',gl,'dr',matchedIn);
-
-const bsDebitNG=[],bsCreditNG=[],glCreditNB=[],glDebitNB=[];
+const _0xf60a1=[],_0x071b2=[];
+_0xcffb(_0x3a4b(bs,'dr',gl,'cr',_0xe11d,0),bs,'dr',gl,'cr',_0xf60a1,'');
+_0xcffb(_0x3a4b(bs,'dr',gl,'cr',14,1),      bs,'dr',gl,'cr',_0xf60a1,'2');
+_0xcffb(_0x3a4b(bs,'dr',gl,'cr',365,4),     bs,'dr',gl,'cr',_0xf60a1,'3');
+_0x5c6d(bs,'dr',gl,'cr',_0xf60a1);
+_0xcffb(_0x3a4b(bs,'cr',gl,'dr',_0xe11d,0),bs,'cr',gl,'dr',_0x071b2,'');
+_0xcffb(_0x3a4b(bs,'cr',gl,'dr',14,1),      bs,'cr',gl,'dr',_0x071b2,'2');
+_0xcffb(_0x3a4b(bs,'cr',gl,'dr',365,4),     bs,'cr',gl,'dr',_0x071b2,'3');
+_0x5c6d(bs,'cr',gl,'dr',_0x071b2);
+const _0xd4ef=[],_0xe5f0=[],_0xf601a=[],_0x0712b=[];
 for (const r of bs) {
-if (!r.used&&r.dr>=_0xd00c) bsDebitNG.push({date:_0x8bad(r.date),amt:r.dr,narr:r.narr});
-if (!r.used&&r.cr>=_0xd00c) bsCreditNG.push({date:_0x8bad(r.date),amt:r.cr,narr:r.narr});
+if (!r.used&&r.dr>=_0xd00c) _0xd4ef.push({date:_0x8bad(r.date),amt:r.dr,narr:r.narr});
+if (!r.used&&r.cr>=_0xd00c) _0xe5f0.push({date:_0x8bad(r.date),amt:r.cr,narr:r.narr});
 }
 for (const r of gl) {
-if (!r.used&&r.cr>=_0xd00c) glCreditNB.push({period:_0x9cbe(r.date),date:_0x8bad(r.date),amt:r.cr,narr:r.narr});
-if (!r.used&&r.dr>=_0xd00c) glDebitNB.push({period:_0x9cbe(r.date),date:_0x8bad(r.date),amt:r.dr,narr:r.narr});
+if (!r.used&&r.cr>=_0xd00c) _0xf601a.push({period:_0x9cbe(r.date),date:_0x8bad(r.date),amt:r.cr,narr:r.narr});
+if (!r.used&&r.dr>=_0xd00c) _0x0712b.push({period:_0x9cbe(r.date),date:_0x8bad(r.date),amt:r.dr,narr:r.narr});
 }
-
 const S=(a,k)=>a.reduce((t,r)=>t+r[k],0);
-const totMO=S(matchedOut,'bsAmt'),totMI=S(matchedIn,'bsAmt');
-const totBD=S(bsDebitNG,'amt'),totBC=S(bsCreditNG,'amt');
-const totGC=S(glCreditNB,'amt'),totGD=S(glDebitNB,'amt');
+const totMO=S(_0xf60a1,'bsAmt'),totMI=S(_0x071b2,'bsAmt');
+const totBD=S(_0xd4ef,'amt'),totBC=S(_0xe5f0,'amt');
+const totGC=S(_0xf601a,'amt'),totGD=S(_0x0712b,'amt');
 const bsCBrow=[...bs].reverse().find(r=>r.bal!==0);
 const bsCB=bsCBrow?bsCBrow.bal:(bs.length?bs[bs.length-1].bal:0);
 const glBals=gl.map(r=>r.bal).filter(b=>Math.abs(b)>0.005);
 const cashbookBal=glBals.length>0?glBals[glBals.length-1]:gl.reduce((s,r)=>s+r.dr-r.cr,0);
 const adjBal=Math.round((bsCB+totBD-totBC+totGD-totGC)*100)/100;
 const variance=Math.round((adjBal-cashbookBal)*100)/100;
-const ok=audit.filter(a=>a.comment==='PARSED OK').length;
-const fail=audit.filter(a=>a.comment==='PARSE FAILED').length;
-const gap=audit.filter(a=>a.comment.includes('LARGE DATE GAP')).length;
-
+const ok=_0x2934d.filter(a=>a.comment==='PARSED OK').length;
+const fail=_0x2934d.filter(a=>a.comment==='PARSE FAILED').length;
+const gap=_0x2934d.filter(a=>a.comment.includes('LARGE DATE GAP')).length;
 return {
 summary:{
 bsN:bs.length,glN:gl.length,
@@ -1144,14 +1086,14 @@ bsTotDr:Math.round(bs.reduce((s,r)=>s+r.dr,0)*100)/100,
 bsTotCr:Math.round(bs.reduce((s,r)=>s+r.cr,0)*100)/100,
 glTotDr:Math.round(gl.reduce((s,r)=>s+r.dr,0)*100)/100,
 glTotCr:Math.round(gl.reduce((s,r)=>s+r.cr,0)*100)/100,
-mOutN:matchedOut.length,mInN:matchedIn.length,
+mOutN:_0xf60a1.length,mInN:_0x071b2.length,
 totMO,totMI,totBD,totBC,totGC,totGD,
 bsCB,adjBal,cashbookBal,variance,ok,fail,gap,
 integrity:fail===0?'PASS':'REVIEW',
-totalAudit:audit.length
+totalAudit:_0x2934d.length
 },
-matchedOut,matchedIn,
-bsDebitNG,bsCreditNG,glCreditNB,glDebitNB,audit
+_0xf60a1,_0x071b2,
+_0xd4ef,_0xe5f0,_0xf601a,_0x0712b,_0x2934d
 };
 }
 function _0x4d6f(file) {
@@ -1173,13 +1115,11 @@ const wb=XLSX.utils.book_new();
 const s=d.summary;
 const N=n=>(n==null||isNaN(+n))?0:+n;
 const ts=new Date().toISOString().slice(0,10);
-
 function sht(name,rows,widths) {
 const ws=XLSX.utils.json_to_sheet(rows.length?rows:[{'':' No entries'}]);
 if (widths) ws['!cols']=widths.map(w=>({wch:w}));
 XLSX.utils.book_append_sheet(wb,ws,name);
 }
-
 sht('Recon Summary',[
 {'ITEM':'EIS BANK RECONCILIATION SUMMARY','VALUE':''},{'ITEM':'','VALUE':''},
 {'ITEM':'BANK STATEMENT','VALUE':''},
@@ -1197,13 +1137,13 @@ sht('Recon Summary',[
 {'ITEM':'Matched Outflows Amount','VALUE':N(s.totMO)},
 {'ITEM':'Matched Inflows','VALUE':s.mInN},
 {'ITEM':'Matched Inflows Amount','VALUE':N(s.totMI)},
-{'ITEM':'Debit in BS NOT in GL','VALUE':d.bsDebitNG.length},
+{'ITEM':'Debit in BS NOT in GL','VALUE':d._0xd4ef.length},
 {'ITEM':'Debit in BS NOT in GL Amount','VALUE':N(s.totBD)},
-{'ITEM':'Credit in BS NOT in GL','VALUE':d.bsCreditNG.length},
+{'ITEM':'Credit in BS NOT in GL','VALUE':d._0xe5f0.length},
 {'ITEM':'Credit in BS NOT in GL Amount','VALUE':N(s.totBC)},
-{'ITEM':'Credit in GL NOT in BS','VALUE':d.glCreditNB.length},
+{'ITEM':'Credit in GL NOT in BS','VALUE':d._0xf601a.length},
 {'ITEM':'Credit in GL NOT in BS Amount','VALUE':N(s.totGC)},
-{'ITEM':'Debit in GL NOT in BS','VALUE':d.glDebitNB.length},
+{'ITEM':'Debit in GL NOT in BS','VALUE':d._0x0712b.length},
 {'ITEM':'Debit in GL NOT in BS Amount','VALUE':N(s.totGD)},
 {'ITEM':'','VALUE':''},
 {'ITEM':'BALANCE RECONCILIATION STATEMENT','VALUE':''},
@@ -1223,32 +1163,27 @@ sht('Recon Summary',[
 {'ITEM':'Developed by','VALUE':'Michael Felix Happy'},
 {'ITEM':'Generated','VALUE':ts},
 ],[44,18]);
-
-const moR=d.matchedOut.map((r,i)=>({'#':i+1,'BS Date':r.bsDate,'BS Amount (₦)':N(r.bsAmt),'BS Narration':r.bsNarr,'GL Date':r.glDate,'GL Amount (₦)':N(r.glAmt),'GL Description':r.glNarr,'Days Diff':r.dateDiff,'KW Hits':r.kwHits,'Match Quality':r.quality}));
+const moR=d._0xf60a1.map((r,i)=>({'#':i+1,'BS Date':r.bsDate,'BS Amount (₦)':N(r.bsAmt),'BS Narration':r.bsNarr,'GL Date':r.glDate,'GL Amount (₦)':N(r.glAmt),'GL Description':r.glNarr,'Days Diff':r.dateDiff,'KW Hits':r.kwHits,'Match Quality':r.quality}));
 if (moR.length) moR.push({'#':'','BS Date':'TOTAL','BS Amount (₦)':N(s.totMO),'BS Narration':'','GL Date':'','GL Amount (₦)':N(s.totMO),'GL Description':'','Days Diff':'','KW Hits':'','Match Quality':''});
 sht('Matched Outflows',moR,[4,13,16,38,13,16,38,9,8,20]);
-
-const miR=d.matchedIn.map((r,i)=>({'#':i+1,'BS Date':r.bsDate,'BS Amount (₦)':N(r.bsAmt),'BS Narration':r.bsNarr,'GL Date':r.glDate,'GL Amount (₦)':N(r.glAmt),'GL Description':r.glNarr,'Days Diff':r.dateDiff,'KW Hits':r.kwHits,'Match Quality':r.quality}));
+const miR=d._0x071b2.map((r,i)=>({'#':i+1,'BS Date':r.bsDate,'BS Amount (₦)':N(r.bsAmt),'BS Narration':r.bsNarr,'GL Date':r.glDate,'GL Amount (₦)':N(r.glAmt),'GL Description':r.glNarr,'Days Diff':r.dateDiff,'KW Hits':r.kwHits,'Match Quality':r.quality}));
 if (miR.length) miR.push({'#':'','BS Date':'TOTAL','BS Amount (₦)':N(s.totMI),'BS Narration':'','GL Date':'','GL Amount (₦)':N(s.totMI),'GL Description':'','Days Diff':'','KW Hits':'','Match Quality':''});
 sht('Matched Inflows',miR,[4,13,16,38,13,16,38,9,8,20]);
-
 const bs4=(arr,tot,nm)=>{
 const rows=arr.map((r,i)=>({'#':i+1,'Date':r.date,'Amount (₦)':N(r.amt),'Narration':r.narr}));
 if (rows.length) rows.push({'#':'','Date':'TOTAL','Amount (₦)':N(tot),'Narration':''});
 sht(nm,rows,[4,14,18,46]);
 };
-bs4(d.bsDebitNG,s.totBD,'BS Debit Not in GL');
-bs4(d.bsCreditNG,s.totBC,'BS Credit Not in GL');
-
+bs4(d._0xd4ef,s.totBD,'BS Debit Not in GL');
+bs4(d._0xe5f0,s.totBC,'BS Credit Not in GL');
 const gl6=(arr,tot,nm)=>{
 const rows=arr.map((r,i)=>({'#':i+1,'Period':r.period,'GL Date':r.date,'Amount (₦)':N(r.amt),'GL Description':r.narr,'Remarks':''}));
 if (rows.length) rows.push({'#':'','Period':'','GL Date':'TOTAL','Amount (₦)':N(tot),'GL Description':'','Remarks':''});
 sht(nm,rows,[4,12,14,18,44,14]);
 };
-gl6(d.glCreditNB,s.totGC,'GL Credit Not in BS');
-gl6(d.glDebitNB,s.totGD,'GL Debit Not in BS');
-
-const auR=d.audit.map(a=>({'Sheet':a.sheet,'Row':a.row,'Original Value':a.original,'Parsed Date':a.parsed||'—','Comment':a.comment}));
+gl6(d._0xf601a,s.totGC,'GL Credit Not in BS');
+gl6(d._0x0712b,s.totGD,'GL Debit Not in BS');
+const auR=d._0x2934d.map(a=>({'Sheet':a.sheet,'Row':a.row,'Original Value':a.original,'Parsed Date':a.parsed||'—','Comment':a.comment}));
 sht('Date Audit Log',auR.length?auR:[{'Sheet':'No data','Row':'','Original Value':'','Parsed Date':'','Comment':''}],[16,6,22,14,28]);
 XLSX.writeFile(wb,`EIS-BankRecon-${ts}.xlsx`);
 }
@@ -1259,7 +1194,6 @@ const s=d.summary; const ts=new Date().toISOString().slice(0,10);
 const W=doc.internal.pageSize.getWidth();
 const fN=n=>n==null?'0.00':Number(n).toLocaleString('en-NG',{minimumFractionDigits:2,maximumFractionDigits:2});
 let y=0;
-
 const ph=title=>{
 if(y>0) doc.addPage();
 doc.setFillColor(10,22,40); doc.rect(0,0,W,48,'F');
@@ -1277,7 +1211,6 @@ doc.setFont('helvetica','bold'); doc.setTextColor(...(c||[232,237,245])); doc.te
 };
 const sl=t=>{doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(0,201,167);doc.text(t.toUpperCase(),20,y);y+=14;};
 const dv=()=>{doc.setDrawColor(22,39,71);doc.setLineWidth(0.5);doc.line(20,y,W-20,y);y+=10;};
-
 ph('Reconciliation Summary');
 const ip=s.integrity==='PASS';
 doc.setFillColor(ip?34:245,ip?197:166,ip?94:35,30);
@@ -1285,7 +1218,6 @@ doc.roundedRect(W-145,y-13,125,18,4,4,'F');
 doc.setFont('helvetica','bold'); doc.setFontSize(8.5);
 doc.setTextColor(ip?34:245,ip?197:166,ip?94:35);
 doc.text(`DATE INTEGRITY: ${s.integrity}`,W-82,y-1,{align:'center'}); y+=8;
-
 sl('Bank Statement');
 kv('Total Transactions',s.bsN); kv('Total Debit (Outflows)','₦'+fN(s.bsTotDr)); kv('Total Credit (Inflows)','₦'+fN(s.bsTotCr)); dv();
 sl('Bank GL');
@@ -1295,13 +1227,13 @@ kv('Matched Outflows (BS Debit ↔ GL Credit)',s.mOutN,[0,201,167]);
 kv('Matched Outflows Amount','₦'+fN(s.totMO),[0,201,167]);
 kv('Matched Inflows (BS Credit ↔ GL Debit)',s.mInN,[34,197,94]);
 kv('Matched Inflows Amount','₦'+fN(s.totMI),[34,197,94]);
-kv('Debit in BS NOT in GL',d.bsDebitNG.length,[245,166,35]);
+kv('Debit in BS NOT in GL',d._0xd4ef.length,[245,166,35]);
 kv('Debit in BS NOT in GL Amount','₦'+fN(s.totBD),[245,166,35]);
-kv('Credit in BS NOT in GL',d.bsCreditNG.length,[245,166,35]);
+kv('Credit in BS NOT in GL',d._0xe5f0.length,[245,166,35]);
 kv('Credit in BS NOT in GL Amount','₦'+fN(s.totBC),[245,166,35]);
-kv('Credit in GL NOT in BS',d.glCreditNB.length,[245,166,35]);
+kv('Credit in GL NOT in BS',d._0xf601a.length,[245,166,35]);
 kv('Credit in GL NOT in BS Amount','₦'+fN(s.totGC),[245,166,35]);
-kv('Debit in GL NOT in BS',d.glDebitNB.length,[245,166,35]);
+kv('Debit in GL NOT in BS',d._0x0712b.length,[245,166,35]);
 kv('Debit in GL NOT in BS Amount','₦'+fN(s.totGD),[245,166,35]);
 dv();
 sl('Balance Reconciliation Statement');
@@ -1330,7 +1262,6 @@ y+=24; dv();
 sl('Date Parsing'); kv('Dates Parsed OK',s.ok,[34,197,94]); if(s.fail) kv('Parse Failures',s.fail,[224,82,82]);
 doc.setFont('helvetica','italic'); doc.setFontSize(8); doc.setTextColor(74,96,128);
 doc.text('Developed by Michael Felix Happy',W/2,doc.internal.pageSize.getHeight()-14,{align:'center'});
-
 const aTbl=(rows,tot,title,hcol,heads,bdy)=>{
 if(!rows.length) return;
 ph(title);
@@ -1344,17 +1275,17 @@ styles:{fillColor:[10,22,40],lineColor:[255,255,255,15],lineWidth:0.3},
 didParseCell:c=>{if(c.row.index===c.table.body.length-1){c.cell.styles.fontStyle='bold';c.cell.styles.textColor=hcol;}}
 });
 };
-aTbl(d.matchedOut,s.totMO,'Matched Outflows — BS Debit ↔ GL Credit',[0,201,167],
+aTbl(d._0xf60a1,s.totMO,'Matched Outflows — BS Debit ↔ GL Credit',[0,201,167],
 ['#','BS Date','BS Amount (₦)','BS Narration','GL Date','GL Amount (₦)','GL Description','Days','Quality'],
 r=>[r.bsDate,fN(r.bsAmt),r.bsNarr,r.glDate,fN(r.glAmt),r.glNarr,r.dateDiff,r.quality]);
-aTbl(d.matchedIn,s.totMI,'Matched Inflows — BS Credit ↔ GL Debit',[34,197,94],
+aTbl(d._0x071b2,s.totMI,'Matched Inflows — BS Credit ↔ GL Debit',[34,197,94],
 ['#','BS Date','BS Amount (₦)','BS Narration','GL Date','GL Amount (₦)','GL Description','Days','Quality'],
 r=>[r.bsDate,fN(r.bsAmt),r.bsNarr,r.glDate,fN(r.glAmt),r.glNarr,r.dateDiff,r.quality]);
-aTbl(d.bsDebitNG,s.totBD,'BS Debit Not in GL',[245,166,35],['#','Date','Amount (₦)','Narration'],r=>[r.date,fN(r.amt),r.narr]);
-aTbl(d.bsCreditNG,s.totBC,'BS Credit Not in GL',[245,166,35],['#','Date','Amount (₦)','Narration'],r=>[r.date,fN(r.amt),r.narr]);
-aTbl(d.glCreditNB,s.totGC,'GL Credit Not in BS',[99,179,237],['#','Period','GL Date','Amount (₦)','GL Description'],r=>[r.period,r.date,fN(r.amt),r.narr]);
-aTbl(d.glDebitNB,s.totGD,'GL Debit Not in BS',[99,179,237],['#','Period','GL Date','Amount (₦)','GL Description'],r=>[r.period,r.date,fN(r.amt),r.narr]);
-const iss=d.audit.filter(a=>a.comment!=='PARSED OK');
+aTbl(d._0xd4ef,s.totBD,'BS Debit Not in GL',[245,166,35],['#','Date','Amount (₦)','Narration'],r=>[r.date,fN(r.amt),r.narr]);
+aTbl(d._0xe5f0,s.totBC,'BS Credit Not in GL',[245,166,35],['#','Date','Amount (₦)','Narration'],r=>[r.date,fN(r.amt),r.narr]);
+aTbl(d._0xf601a,s.totGC,'GL Credit Not in BS',[99,179,237],['#','Period','GL Date','Amount (₦)','GL Description'],r=>[r.period,r.date,fN(r.amt),r.narr]);
+aTbl(d._0x0712b,s.totGD,'GL Debit Not in BS',[99,179,237],['#','Period','GL Date','Amount (₦)','GL Description'],r=>[r.period,r.date,fN(r.amt),r.narr]);
+const iss=d._0x2934d.filter(a=>a.comment!=='PARSED OK');
 if(iss.length){
 ph('Date Audit Log');
 doc.autoTable({startY:y,margin:{left:20,right:20},
@@ -1367,10 +1298,9 @@ styles:{fillColor:[10,22,40],lineColor:[255,255,255,15],lineWidth:0.3}});
 }
 doc.save(`EIS-BankRecon-${ts}.pdf`);
 }
-const ST={bsFile:null,bsRaw:[],glFile:null,glRaw:[],result:null};
+const _0xST__={bsFile:null,_0xb2cd6:[],glFile:null,_0xc3de7:[],result:null};
 const $=id=>document.getElementById(id);
 const fN=n=>n==null||isNaN(n)?'—':Number(n).toLocaleString('en-NG',{minimumFractionDigits:2,maximumFractionDigits:2});
-
 function _0xadcf(n){
 [1,2,3].forEach(i=>{
 $(`s${i}`).className='si'+(i<n?' dn':i===n?' act':'');
@@ -1381,7 +1311,6 @@ if(i===n){p.classList.add('on');p.classList.add('ani');}else p.classList.remove(
 }
 function _0xbeda(m){const e=$('err');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),9000);}
 function _0xcfeb(t){$('stx').textContent=t;}
-
 function _0x3c5e(rows,wid){
 const sl=rows.slice(0,6);
 let h=`<div class="pscr"><div class="plb">Preview — ${sl.length} of ${rows.length} rows</div>
@@ -1390,24 +1319,22 @@ for(const r of sl) h+=`<tr>${[0,1,2,3,4].map(c=>`<td class="${c>=2?'nm':c===1?'n
 h+='</tbody></table></div>';
 $(wid).innerHTML=h;
 }
-
 async function _0x2b4d(file,w){
 const isBS=w==='b';
 const box=$(isBS?'bb':'gb'),nm=$(isBS?'bn':'gn'),cnt=$(isBS?'bc':'gc');
 nm.textContent='⏳ Reading...'; cnt.textContent=''; box.classList.add('ok');
 try{
 const raw=await _0x4d6f(file);
-if(isBS){ST.bsFile=file;ST.bsRaw=raw;}else{ST.glFile=file;ST.glRaw=raw;}
+if(isBS){_0xST__.bsFile=file;_0xST__._0xb2cd6=raw;}else{_0xST__.glFile=file;_0xST__._0xc3de7=raw;}
 nm.textContent=file.name;
 cnt.textContent=`${raw.length} rows read — data auto-detected from first date row`;
 _0x3c5e(raw,isBS?'bpv':'gpv');
 }catch(e){
 nm.textContent='⚠ '+e.message; box.classList.remove('ok');
-if(isBS){ST.bsFile=null;ST.bsRaw=[];}else{ST.glFile=null;ST.glRaw=[];}
+if(isBS){_0xST__.bsFile=null;_0xST__._0xb2cd6=[];}else{_0xST__.glFile=null;_0xST__._0xc3de7=[];}
 }
-$('nxt').disabled=!(ST.bsFile&&ST.glFile);
+$('nxt').disabled=!(_0xST__.bsFile&&_0xST__.glFile);
 }
-
 $('bi').addEventListener('change',e=>_0x2b4d(e.target.files[0],'b'));
 $('gi').addEventListener('change',e=>_0x2b4d(e.target.files[0],'g'));
 ['bb','gb'].forEach(id=>{
@@ -1416,12 +1343,10 @@ bx.addEventListener('dragover',e=>{e.preventDefault();bx.classList.add('drag');}
 bx.addEventListener('dragleave',()=>bx.classList.remove('drag'));
 bx.addEventListener('drop',e=>{e.preventDefault();bx.classList.remove('drag');if(e.dataTransfer.files[0])_0x2b4d(e.dataTransfer.files[0],w);});
 });
-
 $('nxt').addEventListener('click',()=>_0xadcf(2));
 $('bk').addEventListener('click',()=>_0xadcf(1));
-
 $('run').addEventListener('click',async()=>{
-if(!ST.bsFile||!ST.glFile) return;
+if(!_0xST__.bsFile||!_0xST__.glFile) return;
 const ld=$('ld'),lm=$('ldm');
 const msgs=['Parsing date columns...','Normalising amounts...','Running fuzzy match engine...','Building result tables...'];
 let mi=0; ld.classList.add('on'); lm.textContent=msgs[0];
@@ -1429,8 +1354,8 @@ const tk=setInterval(()=>{mi=(mi+1)%msgs.length;lm.textContent=msgs[mi];},850);
 _0xcfeb('Processing...');
 try{
 await new Promise(r=>setTimeout(r,80));
-const result=_0x1a2b(ST.bsRaw,ST.glRaw,$('bf').value,$('gf').value);
-ST.result=result;
+const result=_0x1a2b(_0xST__._0xb2cd6,_0xST__._0xc3de7,$('bf').value,$('gf').value);
+_0xST__.result=result;
 _0x1c2d(result);
 _0xadcf(3); _0xcfeb('Complete');
 }catch(e){
@@ -1439,22 +1364,19 @@ _0xbeda('Error: '+e.message); _0xcfeb('Error');
 clearInterval(tk); ld.classList.remove('on');
 }
 });
-
 $('bnw').addEventListener('click',()=>{
-ST.bsFile=ST.glFile=ST.result=null; ST.bsRaw=ST.glRaw=[];
+_0xST__.bsFile=_0xST__.glFile=_0xST__.result=null; _0xST__._0xb2cd6=_0xST__._0xc3de7=[];
 ['bb','gb'].forEach(id=>$(id).classList.remove('ok','drag'));
 ['bn','gn','bc','gc'].forEach(id=>$(id).textContent='');
 ['bpv','gpv'].forEach(id=>$(id).innerHTML='');
 $('nxt').disabled=true; $('res').style.display='none';
 _0xadcf(1); _0xcfeb('EIS Bank Recon — Ready');
 });
-
 $('bca').addEventListener('click',e=>{e.stopPropagation();$('dmn').classList.toggle('op');});
 document.addEventListener('click',()=>$('dmn').classList.remove('op'));
-$('bxl').addEventListener('click',()=>{if(ST.result)_0x7e8f(ST.result);});
-$('mxl').addEventListener('click',()=>{$('dmn').classList.remove('op');if(ST.result)_0x7e8f(ST.result);});
-$('mpd').addEventListener('click',()=>{$('dmn').classList.remove('op');if(ST.result)_0x9a0b(ST.result);});
-
+$('bxl').addEventListener('click',()=>{if(_0xST__.result)_0x7e8f(_0xST__.result);});
+$('mxl').addEventListener('click',()=>{$('dmn').classList.remove('op');if(_0xST__.result)_0x7e8f(_0xST__.result);});
+$('mpd').addEventListener('click',()=>{$('dmn').classList.remove('op');if(_0xST__.result)_0x9a0b(_0xST__.result);});
 document.querySelectorAll('.tb').forEach(b=>{
 b.addEventListener('click',()=>{
 document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));
@@ -1467,33 +1389,30 @@ const s=d.summary;
 $('res').style.display='block';
 $('ibg').className=`ib2 ${s.integrity==='PASS'?'ps':'rv'}`;
 $('ibg').innerHTML=`<div class="id"></div>DATE INTEGRITY: ${s.integrity}`;
-$('rmeta').textContent=`BS: ${ST.bsFile.name}  ·  GL: ${ST.glFile.name}`;
-
+$('rmeta').textContent=`BS: ${_0xST__.bsFile.name}  ·  GL: ${_0xST__.glFile.name}`;
 $('mgr').innerHTML=[
-{l:'BS Transaction Count',v:`Total: ${s.bsN}`,c:'',ac:false,sub:`DR: ${d.bsDebitNG.length+s.mOutN} | CR: ${d.bsCreditNG.length+s.mInN}`},
-{l:'GL Entries Count',v:`Total: ${s.glN}`,c:'',ac:false,sub:`DR: ${d.glDebitNB.length+s.mInN} | CR: ${d.glCreditNB.length+s.mOutN}`},
+{l:'BS Transaction Count',v:`Total: ${s.bsN}`,c:'',ac:false,sub:`DR: ${d._0xd4ef.length+s.mOutN} | CR: ${d._0xe5f0.length+s.mInN}`},
+{l:'GL Entries Count',v:`Total: ${s.glN}`,c:'',ac:false,sub:`DR: ${d._0x0712b.length+s.mInN} | CR: ${d._0xf601a.length+s.mOutN}`},
 {l:'Total BS Outflows',v:`₦${fN(s.bsTotDr)}`,c:'',ac:false},
 {l:'Total BS Inflows',v:`₦${fN(s.bsTotCr)}`,c:'',ac:false},
 {l:'Total GL Debits',v:`₦${fN(s.glTotDr)}`,c:'',ac:false},
 {l:'Total GL Credits',v:`₦${fN(s.glTotCr)}`,c:'',ac:false},
 {l:'Matched Outflows',v:s.mOutN,c:'tl',ac:true,sub:`₦${fN(s.totMO)}`},
 {l:'Matched Inflows',v:s.mInN,c:'gn',ac:false,sub:`₦${fN(s.totMI)}`},
-{l:'BS Debit Not in GL',v:d.bsDebitNG.length,c:'am',ac:false,sub:`₦${fN(s.totBD)}`},
-{l:'BS Credit Not in GL',v:d.bsCreditNG.length,c:'am',ac:false,sub:`₦${fN(s.totBC)}`},
-{l:'GL Credit Not in BS',v:d.glCreditNB.length,c:d.glCreditNB.length?'am':'',ac:false,sub:`₦${fN(s.totGC)}`},
-{l:'GL Debit Not in BS',v:d.glDebitNB.length,c:d.glDebitNB.length?'am':'',ac:false,sub:`₦${fN(s.totGD)}`}
+{l:'BS Debit Not in GL',v:d._0xd4ef.length,c:'am',ac:false,sub:`₦${fN(s.totBD)}`},
+{l:'BS Credit Not in GL',v:d._0xe5f0.length,c:'am',ac:false,sub:`₦${fN(s.totBC)}`},
+{l:'GL Credit Not in BS',v:d._0xf601a.length,c:d._0xf601a.length?'am':'',ac:false,sub:`₦${fN(s.totGC)}`},
+{l:'GL Debit Not in BS',v:d._0x0712b.length,c:d._0x0712b.length?'am':'',ac:false,sub:`₦${fN(s.totGD)}`}
 ].map(m=>`<div class="mc${m.ac?' ac':''}"><div class="ml">${m.l}</div>${m.v?`<div class="mv ${m.c}">${m.v}</div>`:''}<div class="ms">${m.sub||''}</div></div>`).join('');
-
 _0x3e4f(s);
-_0x5a6b('t-out',d.matchedOut,s.totMO,true);
-_0x5a6b('t-inf',d.matchedIn,s.totMI,false);
-_0x7c8d('t-bsd',d.bsDebitNG,s.totBD,'These are amounts the bank has debited with no corresponding credit entry in the GL. Common causes: bank charges, NIP fees, third-party debits or missed postings.');
-_0x7c8d('t-bsc',d.bsCreditNG,s.totBC,'These are amounts credited into your bank account not yet recorded in the GL. Investigate and post the missing receipt entries.');
-_0x9e0f('t-glc',d.glCreditNB,s.totGC,'Payments recorded in the GL as credits but not yet on the bank statement — in-transit items or timing differences. Follow up with the bank.');
-_0x9e0f('t-gld',d.glDebitNB,s.totGD,'Receipts recorded in the GL as debits not yet on bank statement — cheques in clearing or pending reversals.');
-_0x1a3c(d.audit,s);
+_0x5a6b('t-out',d._0xf60a1,s.totMO,true);
+_0x5a6b('t-inf',d._0x071b2,s.totMI,false);
+_0x7c8d('t-bsd',d._0xd4ef,s.totBD,'These are amounts the bank has debited with no corresponding credit entry in the GL. Common causes: bank charges, NIP fees, third-party debits or missed postings.');
+_0x7c8d('t-bsc',d._0xe5f0,s.totBC,'These are amounts credited into your bank account not yet recorded in the GL. Investigate and post the missing receipt entries.');
+_0x9e0f('t-glc',d._0xf601a,s.totGC,'Payments recorded in the GL as credits but not yet on the bank statement — in-transit items or timing differences. Follow up with the bank.');
+_0x9e0f('t-gld',d._0x0712b,s.totGD,'Receipts recorded in the GL as debits not yet on bank statement — cheques in clearing or pending reversals.');
+_0x1a3c(d._0x2934d,s);
 }
-
 function _0x3e4f(s){
 const vari=s.variance!=null?s.variance:Math.round((s.adjBal-s.cashbookBal)*100)/100;
 const rec=Math.abs(vari)<0.01;
@@ -1521,7 +1440,6 @@ $('t-sum').innerHTML=`
 <div class="mc"><div class="ml">Total GL Credits</div><div class="mv" style="font-size:16px">₦${fN(s.glTotCr)}</div></div>
 </div>`;
 }
-
 function _0x5a6b(id,data,tot,isOut){
 if(!data.length){$(id).innerHTML=_0x2561(`No matched ${isOut?'outflow':'inflow'} entries`);return;}
 let h=`<div class="tw"><table><thead><tr><th>#</th><th>BS Date</th><th>BS Amount (₦)</th><th>BS Narration</th><th>GL Date</th><th>GL Amount (₦)</th><th>GL Description</th><th>Days</th><th>KW</th><th>Quality</th></tr></thead><tbody>`;
@@ -1532,7 +1450,6 @@ h+=`<tr class="trm"><td style="color:var(--tx3)">${i+1}</td><td style="font-fami
 h+=`<tr class="trt"><td colspan="2" style="text-align:right;color:var(--tx3)">TOTAL</td><td class="nm">₦${fN(tot)}</td><td colspan="7"></td></tr></tbody></table></div>`;
 $(id).innerHTML=h;
 }
-
 function _0x7c8d(id,data,tot,note){
 if(!data.length){$(id).innerHTML=_0x2561('No entries in this category');return;}
 let h=`<div class="nt">${note}</div><div class="tw"><table><thead><tr><th>#</th><th>Date</th><th>Amount (₦)</th><th>Narration / Remarks</th></tr></thead><tbody>`;
@@ -1540,7 +1457,6 @@ data.forEach((r,i)=>{h+=`<tr class="tru"><td style="color:var(--tx3)">${i+1}</td
 h+=`<tr class="trt"><td colspan="2" style="text-align:right;color:var(--tx3)">TOTAL</td><td class="nm">₦${fN(tot)}</td><td></td></tr></tbody></table></div>`;
 $(id).innerHTML=h;
 }
-
 function _0x9e0f(id,data,tot,note){
 if(!data.length){$(id).innerHTML=_0x2561('No entries in this category');return;}
 let h=`<div class="nt">${note}</div><div class="tw"><table><thead><tr><th>#</th><th>Period</th><th>GL Date</th><th>Amount (₦)</th><th>GL Description</th></tr></thead><tbody>`;
@@ -1548,11 +1464,10 @@ data.forEach((r,i)=>{h+=`<tr class="tru"><td style="color:var(--tx3)">${i+1}</td
 h+=`<tr class="trt"><td colspan="3" style="text-align:right;color:var(--tx3)">TOTAL</td><td class="nm">₦${fN(tot)}</td><td></td></tr></tbody></table></div>`;
 $(id).innerHTML=h;
 }
-
-function _0x1a3c(audit,s){
-const iss=audit.filter(a=>a.comment!=='PARSED OK');
+function _0x1a3c(_0x2934d,s){
+const iss=_0x2934d.filter(a=>a.comment!=='PARSED OK');
 let h=`<div class="bg">
-<span class="pl pb">Total: ${audit.length}</span>
+<span class="pl pb">Total: ${_0x2934d.length}</span>
 <span class="pl pg">OK: ${s.ok}</span>
 ${s.fail?`<span class="pl pr">Failed: ${s.fail}</span>`:''}
 ${s.gap?`<span class="pl pa">Date gaps noted: ${s.gap}</span>`:''}
@@ -1566,11 +1481,9 @@ h+=`<tr><td>${a.sheet}</td><td style="font-family:var(--mo)">${a.row}</td><td st
 h+='</tbody></table></div>';
 $('t-aud').innerHTML=h;
 }
-
 function _0x2561(m){return`<div class="ep"><div class="ei">✓</div>${m}</div>`;}
 document.getElementById('yr').textContent=new Date().getFullYear();
-usrInput.focus();
-
+_0x3a45.focus();
 </script>
 </body>
 </html>
