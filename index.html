@@ -1745,7 +1745,7 @@ _0x3a45.focus();
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({surname:sur,otherNames:oth,email:eml,phone:ph})
         });
-        var data=await res.json();
+         let data;  try {   data = await res.json(); } catch (e) {   throw new Error('Server returned invalid response (not JSON)'); }
         if(!res.ok) throw new Error(data.error||'Signup failed.');
         okEl.textContent='✓ '+data.message;
         okEl.style.display='block';
@@ -1775,7 +1775,7 @@ _0x3a45.focus();
 
     try{
       var res=await fetch(API+'/auth/confirm/'+token);
-      var data=await res.json();
+       let data;  try {   data = await res.json(); } catch (e) {   throw new Error('Server returned invalid response (not JSON)'); }
       if(!res.ok) throw new Error(data.error||'Invalid or expired link.');
       document.getElementById('setpwd-greeting').textContent=
         'Welcome, '+data.otherNames+' '+data.surname+'! Please create your password.';
@@ -1819,7 +1819,7 @@ _0x3a45.focus();
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({token:tok,password:pwd})
         });
-        var data=await res.json();
+         let data;  try {   data = await res.json(); } catch (e) {   throw new Error('Server returned invalid response (not JSON)'); }
         if(!res.ok) throw new Error(data.error||'Failed to set password.');
         okEl.textContent='✓ '+data.message+' Redirecting to login...';
         okEl.style.display='block';
@@ -1875,7 +1875,14 @@ _0x3a45.focus();
       forgotBtn.classList.add('loading'); forgotBtn.disabled=true;
       try{
         var res=await fetch(API+'/auth/forgot-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:eml})});
-        var data=await res.json();
+        let data;
+
+try {
+  data = await res.json();
+} catch (e) {
+  throw new Error('Server returned invalid response (not JSON)');
+}
+
         if(!res.ok) throw new Error(data.error||'Request failed.');
         okEl.textContent='checkmark '+data.message;
         okEl.style.display='block';
@@ -1898,7 +1905,15 @@ _0x3a45.focus();
     var btn=document.getElementById('resetpwd-btn');
     try{
       var res=await fetch(API+'/auth/verify-reset/'+token);
-      var data=await res.json();
+      
+let data;
+
+try {
+  data = await res.json();
+} catch (e) {
+  throw new Error('Server returned invalid response (not JSON)');
+}
+
       if(!res.ok) throw new Error(data.error||'Invalid or expired link.');
       document.getElementById('resetpwd-greeting').textContent='Hi '+data.name+'! Enter your new password below.';
       document.getElementById('resetpwd-card').dataset.resetToken=token;
@@ -1922,7 +1937,15 @@ _0x3a45.focus();
       resetBtn.classList.add('loading'); resetBtn.disabled=true;
       try{
         var res=await fetch(API+'/auth/reset-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:tok,password:pwd})});
-        var data=await res.json();
+        
+let data;
+
+try {
+  data = await res.json();
+} catch (e) {
+  throw new Error('Server returned invalid response (not JSON)');
+}
+
         if(!res.ok) throw new Error(data.error||'Reset failed.');
         okEl.textContent=data.message+' Redirecting to login...';
         okEl.style.display='block';
@@ -1986,7 +2009,7 @@ _0x3a45.focus();
       sendBtn.disabled=true;
       try{
         var res=await fetch(API+'/auth/contact-admin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:uname,email:email,message:msg})});
-        var data=await res.json();
+         let data;  try {   data = await res.json(); } catch (e) {   throw new Error('Server returned invalid response (not JSON)'); }
         if(!res.ok) throw new Error(data.error||'Send failed.');
         okEl.textContent=data.message;
         okEl.style.display='block';
