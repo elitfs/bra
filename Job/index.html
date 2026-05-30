@@ -752,7 +752,6 @@
       align-items: flex-start;
       justify-content: space-between;
     }
-    .stats-head-left {}
     .stats-eyebrow {
       font-size: 10px;
       letter-spacing: 0.18em;
@@ -836,7 +835,6 @@
     }
 
     /* Visitor type bar */
-    .vtype-section {}
     .section-label {
       font-size: 10px;
       letter-spacing: 0.14em;
@@ -872,7 +870,6 @@
     .vtype-dot { width: 8px; height: 8px; border-radius: 50%; }
 
     /* Daily chart */
-    .daily-chart-wrap {}
     .daily-bars {
       display: flex;
       align-items: flex-end;
@@ -909,7 +906,6 @@
     }
 
     /* Top searches */
-    .top-searches {}
     .search-rank-list { display: flex; flex-direction: column; gap: 6px; }
     .search-rank-item {
       display: flex;
@@ -919,6 +915,7 @@
       background: var(--bg3);
       border-radius: var(--r);
       border: 1px solid var(--border);
+      position: relative;
     }
     .rank-num {
       font-family: 'Cormorant Garamond', serif;
@@ -928,12 +925,8 @@
       min-width: 22px;
       line-height: 1;
     }
-    .rank-term { flex: 1; font-size: 13px; font-weight: 500; }
-    .rank-count {
-      font-size: 11px;
-      color: var(--text-faint);
-      letter-spacing: 0.04em;
-    }
+    .rank-term { flex: 1; font-size: 13px; font-weight: 500; z-index: 1;}
+    .rank-count { font-size: 11px; color: var(--text-faint); letter-spacing: 0.04em; z-index: 1;}
     .rank-bar-bg {
       position: absolute;
       left: 0; top: 0; bottom: 0;
@@ -941,7 +934,6 @@
       border-radius: var(--r);
       pointer-events: none;
     }
-
     .stats-footer {
       padding: 14px 28px;
       border-top: 1px solid var(--border);
@@ -953,858 +945,639 @@
       justify-content: space-between;
     }
     .clear-stats-btn {
-      font-size: 10px;
-      color: var(--red);
-      background: none;
-      border: none;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      opacity: 0.6;
-      transition: opacity 0.15s;
-    }
-    .clear-stats-btn:hover { opacity: 1; }
-
-    /* ══════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════ */
-    @media (max-width: 700px) {
-      .topbar, .hero, .search-panel,
-      .status-ticker, .results-header,
-      .empty-state, .footer { padding-left: 20px; padding-right: 20px; }
-      .hero { padding-top: 40px; padding-bottom: 32px; }
-      .search-input-row { flex-wrap: wrap; }
-      .search-divider { display: none; }
-      .loc-select { padding: 10px 14px; border-top: 1px solid var(--border); width: 100%; }
-      .search-submit { width: 100%; padding: 14px; }
-      .jobs-grid { grid-template-columns: 1fr; }
-      .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
-      .kpi-row { grid-template-columns: repeat(2, 1fr); }
-      .stats-overlay { padding: 16px 12px; }
-      .stats-head, .stats-body, .stats-footer { padding-left: 18px; padding-right: 18px; }
-    }
-    /* proxy handles auth — no client-side key needed */
-
-    .setup-modal {
-      background: var(--bg2);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      width: 100%;
-      max-width: 480px;
-      animation: panelIn 0.28s cubic-bezier(.22,1,.36,1) both;
-      overflow: hidden;
-    }
-    .setup-header {
-      padding: 24px 26px 18px;
-      border-bottom: 1px solid var(--border);
-    }
-    .setup-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .setup-logo-icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      color: #07080C;
-      flex-shrink: 0;
-    }
-    .setup-logo-text {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-    }
-    .setup-logo-text span { color: var(--accent); }
-    .setup-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-    .setup-desc {
-      font-size: 12px;
-      color: var(--text-dim);
-      line-height: 1.65;
-    }
-    .setup-body { padding: 22px 26px 26px; display: flex; flex-direction: column; gap: 16px; }
-
-    .setup-field label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      font-weight: 600;
-      margin-bottom: 7px;
-    }
-    .setup-input-row {
-      display: flex;
-      align-items: center;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      transition: border-color 0.18s, box-shadow 0.18s;
-    }
-    .setup-input-row:focus-within {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(88,196,140,0.1);
-    }
-    .setup-key-input {
-      flex: 1;
       background: transparent;
-      border: none;
-      outline: none;
-      color: var(--text);
-      font-size: 13px;
-      font-family: 'Figtree', monospace;
-      padding: 11px 14px;
-      letter-spacing: 0.02em;
-    }
-    .setup-key-input::placeholder { color: var(--text-faint); font-family: 'Figtree', sans-serif; }
-    .toggle-vis-btn {
-      background: none;
-      border: none;
-      padding: 0 12px;
-      color: var(--text-faint);
-      cursor: pointer;
-      transition: color 0.15s;
-      display: flex; align-items: center;
-    }
-    .toggle-vis-btn:hover { color: var(--text-dim); }
-
-    .setup-hint {
-      font-size: 11px;
-      color: var(--text-faint);
-      line-height: 1.6;
-    }
-    .setup-hint a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .setup-info-box {
-      background: rgba(88,196,140,0.06);
-      border: 1px solid rgba(88,196,140,0.18);
-      border-radius: var(--r);
-      padding: 12px 14px;
-      font-size: 11px;
-      color: rgba(88,196,140,0.8);
-      line-height: 1.65;
-      display: flex;
-      gap: 8px;
-    }
-    .setup-info-icon { flex-shrink: 0; font-size: 13px; }
-
-    .setup-save-btn {
-      width: 100%;
-      padding: 13px;
-      background: var(--accent);
-      border: none;
-      border-radius: var(--r);
-      color: #07080C;
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .setup-save-btn:hover { background: var(--accent2); transform: translateY(-1px); }
-    .setup-save-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-    .setup-error {
-      font-size: 11px;
-      color: var(--red);
-      display: none;
-      padding: 8px 12px;
-      background: rgba(224,108,117,0.08);
-      border-radius: var(--r);
       border: 1px solid rgba(224,108,117,0.2);
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
     }
-    .setup-error.visible { display: block; }
-
+    .clear-stats-btn:hover { background: rgba(224,108,117,0.06); }
   </style>
 </head>
 <body>
-<div class="shell">
-
-  <!-- ══ TOPBAR ══ -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <a href="../" class="home-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <a href="#" style="display:flex; align-items:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent); margin-right:4px;">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </a>
-      <div class="logo-mark"> FM </div>
-      <div class="logo-text">Job<span>Portal</span></div>
+        <div class="logo-mark"> FM </div>
+        <div class="logo-text">Job<span>Portal</span></div>
+      </div>
+      <div class="topbar-right" style="display:flex;align-items:center;gap:14px;">
+        <button class="stats-btn" onclick="openStats()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Analytics
+        </button>
+        <div>
+          <span class="live-dot">Live Feed</span><br>
+          <strong id="live-date"></strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <p class="hero-eyebrow">AI-Powered Job Intelligence</p>
+      <h1 class="hero-headline">Find every opportunity, <em>every day.</em></h1>
+      <p class="hero-sub">Type any job title, skill, or keyword and we'll instantly scan LinkedIn, Indeed, Jobberman, Glassdoor, and 10+ platforms for today's listings.</p>
+    </section>
+
+    <section class="search-panel">
+      <div class="search-box">
+        <div class="search-input-row" id="search-row">
+          <div class="search-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <input id="search-input" class="search-main" type="text" placeholder="Search any job — Finance Director, Software Engineer, HR Manager…" autocomplete="off" spellcheck="false" />
+          <div class="search-divider"></div>
+          <select id="loc-select" class="loc-select">
+            <option value="Nigeria">🇳🇬 Nigeria</option>
+            <option value="Lagos, Nigeria">📍 Lagos</option>
+            <option value="Abuja, Nigeria">📍 Abuja</option> <option value="London, UK">🇬🇧 London</option>
+            <option value="New York, USA">🇺🇸 New York</option>
+            <option value="Dubai, UAE">🇦🇪 Dubai</option>
+            <option value="South Africa">🇿🇦 South Africa</option>
+            <option value="Global / Remote">🌍 Remote / Global</option>
+          </select>
+          <button class="search-submit" id="search-btn" onclick="triggerSearch()">Search</button>
+        </div>
+        <div class="typing-bar" id="typing-bar">
+          <div class="typing-progress" id="typing-progress"></div>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Type:</span>
+          <button class="type-btn active" data-type="Any" onclick="setType(this)"><span class="type-dot"></span> Any</button>
+          <button class="type-btn" data-type="Full-time" onclick="setType(this)"><span class="type-dot"></span> Full-time</button>
+          <button class="type-btn" data-type="Part-time" onclick="setType(this)"><span class="type-dot"></span> Part-time</button>
+          <button class="type-btn" data-type="Hybrid" onclick="setType(this)"><span class="type-dot"></span> Hybrid</button>
+          <button class="type-btn" data-type="Remote" onclick="setType(this)"><span class="type-dot"></span> Remote</button>
+        </div>
+        <div class="cats-scroll">
+          <span class="cats-label">Quick Categories:</span>
+          <button class="cat-pill" data-query="Software Engineer Developer Frontend Backend Fullstack DevOps" onclick="setCategory(this)"><span class="cat-icon">⚡</span> Tech & Eng</button>
+          <button class="cat-pill" data-query="Finance Manager Accountant Financial Analyst Auditor Tax" onclick="setCategory(this)"><span class="cat-icon">💼</span> Finance & Acct</button>
+          <button class="cat-pill" data-query="HR Manager Human Resources Recruiter Talent Acquisition Specialist" onclick="setCategory(this)"><span class="cat-icon">👥</span> HR & People</button>
+          <button class="cat-pill" data-query="Product Manager Product Owner Associate Product Manager" onclick="setCategory(this)"><span class="cat-icon">📦</span> Product</button>
+          <button class="cat-pill" data-query="Data Analyst Data Scientist Business Intelligence Power BI" onclick="setCategory(this)"><span class="cat-icon">◎</span> Data & Analytics</button>
+          <button class="cat-pill" data-query="Marketing Manager Digital Marketing Brand Manager SEO Growth" onclick="setCategory(this)"><span class="cat-icon">★</span> Marketing</button>
+          <button class="cat-pill" data-query="Legal Counsel Lawyer Corporate Lawyer Compliance Officer" onclick="setCategory(this)"><span class="cat-icon">⚖</span> Legal & Compliance</button>
+          <button class="cat-pill" data-query="Operations Manager Supply Chain Logistics Procurement" onclick="setCategory(this)"><span class="cat-icon">⬡</span> Operations</button>
+          <button class="cat-pill" data-query="Executive Assistant Personal Assistant Office Manager Administrative" onclick="setCategory(this)"><span class="cat-icon">◗</span> Admin</button>
+          <button class="cat-pill" data-query="Remote Finance Accounting CFO full remote work from home" onclick="setCategory(this)"><span class="cat-icon">◉</span> Remote Jobs</button>
+          <button class="cat-pill" data-query="Fintech Banking Operations Financial Services CBN licensed" onclick="setCategory(this)"><span class="cat-icon">◈</span> Fintech & Banking</button>
+          <button class="cat-pill" data-query="Sales Executive Business Development Account Manager B2B" onclick="setCategory(this)"><span class="cat-icon">▲</span> Sales & BizDev</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="status-ticker" id="status-ticker">
+      <div class="spin" id="status-spin"></div>
+      <div class="status-text" id="status-text">Scanning platforms…</div>
+      <div class="platforms-scanning" id="plat-chips">
+        <span class="plat-chip">LinkedIn</span>
+        <span class="plat-chip">Indeed</span>
+        <span class="plat-chip">Jobberman</span>
+        <span class="plat-chip">Glassdoor</span>
+      </div>
     </div>
-    <div class="topbar-right" style="display:flex;align-items:center;gap:14px;">
-      <button class="stats-btn" onclick="openStats()">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Analytics
-      </button>
+
+    <div class="results-header" id="results-header">
       <div>
-        <span class="live-dot">Live Feed</span><br>
-        <strong id="live-date"></strong>
+        <div class="res-count"><span id="count-num">0</span> jobs found</div>
+        <div class="res-meta" id="res-meta-text"></div>
+      </div>
+      <div class="res-timestamp">
+        <strong id="ts-label">—</strong>
+        <span id="ts-query"></span>
       </div>
     </div>
-  </header>
 
-  <!-- ══ HERO ══ -->
-  <section class="hero">
-    <p class="hero-eyebrow">AI-Powered Job Intelligence</p>
-    <h1 class="hero-headline">Find every opportunity, <em>every day.</em></h1>
-    <p class="hero-sub">Type any job title, skill, or keyword and we'll instantly scan LinkedIn, Indeed, Jobberman, Glassdoor, and 10+ platforms for today's listings.</p>
-  </section>
+    <div class="jobs-grid" id="jobs-grid"></div>
 
-  <!-- ══ SEARCH PANEL ══ -->
-  <section class="search-panel">
-    <div class="search-box">
+    <div class="empty-state" id="empty-state">
+      <div class="empty-glyph">◈</div>
+      <div class="empty-title">Start your search</div>
+      <p class="empty-body">Type any job title or keyword above — results appear automatically. Or tap a <strong>quick category</strong> to load today's listings instantly.</p>
+    </div>
 
-      <!-- Main search row -->
-      <div class="search-input-row" id="search-row">
-        <div class="search-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
+    <footer class="footer">
+      <div class="footer-left">
+        <strong>JobPulse</strong> — AI-powered live job intelligence<br> Aggregates today's listings from 10+ platforms via web search </div>
+      <div class="footer-platforms">
+        <span class="fp">LinkedIn</span>
+        <span class="fp">Indeed</span>
+        <span class="fp">Jobberman</span>
+        <span class="fp">MyJobMag</span>
+        <span class="fp">Glassdoor</span>
+        <span class="fp">HotNigerianJobs</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="stats-overlay" id="stats-overlay" onclick="overlayClick(e)">
+    <div class="stats-panel">
+      <div class="stats-head">
+        <div>
+          <div class="stats-eyebrow">Local Metrics Engine</div>
+          <div class="stats-title">Intelligence Console</div>
         </div>
-        <input
-          id="search-input"
-          class="search-main"
-          type="text"
-          placeholder="Search any job — Finance Director, Software Engineer, HR Manager…"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <div class="search-divider"></div>
-        <select id="loc-select" class="loc-select">
-          <option value="Nigeria">🇳🇬 Nigeria</option>
-          <option value="Lagos, Nigeria">📍 Lagos</option>
-          <option value="Abuja, Nigeria">📍 Abuja</option>
-          <option value="London, UK">🇬🇧 London</option>
-          <option value="New York, USA">🇺🇸 New York</option>
-          <option value="Dubai, UAE">🇦🇪 Dubai</option>
-          <option value="South Africa">🇿🇦 South Africa</option>
-          <option value="Global / Remote">🌍 Remote / Global</option>
-        </select>
-        <button class="search-submit" id="search-btn" onclick="triggerSearch()">Search</button>
+        <button class="stats-close" onclick="closeStats()">&times;</button>
       </div>
-
-      <!-- Typing progress bar -->
-      <div class="typing-bar" id="typing-bar">
-        <div class="typing-progress" id="typing-progress"></div>
+      <div class="stats-body">
+        <div class="kpi-row">
+          <div class="kpi-card kpi-total">
+            <div class="kpi-label">Total Traffic</div>
+            <div class="kpi-value" id="kpi-total">0</div>
+            <div class="kpi-sub">Total page requests</div>
+          </div>
+          <div class="kpi-card kpi-today">
+            <div class="kpi-label">Today</div>
+            <div class="kpi-value" id="kpi-today">0</div>
+            <div class="kpi-sub" id="kpi-today-date">-</div>
+          </div>
+          <div class="kpi-card kpi-new">
+            <div class="kpi-label">First Visit</div>
+            <div class="kpi-value" id="kpi-new">0</div>
+            <div class="kpi-sub" id="kpi-new-pct">-</div>
+          </div>
+          <div class="kpi-card kpi-return">
+            <div class="kpi-label">Returning</div>
+            <div class="kpi-value" id="kpi-return">0</div>
+            <div class="kpi-sub" id="kpi-return-pct">-</div>
+          </div>
+        </div>
+        <div class="vtype-section">
+          <div class="section-label">Audience Composition</div>
+          <div class="vtype-bar-wrap">
+            <div class="vtype-seg" id="vbar-new" style="background:var(--blue); width:50%;"></div>
+            <div class="vtype-seg" id="vbar-return" style="background:#C383DB; width:50%;"></div>
+          </div>
+          <div class="vtype-legend">
+            <div class="vtype-item"><div class="vtype-dot" style="background:var(--blue)"></div> New visitors</div>
+            <div class="vtype-item"><div class="vtype-dot" style="background:#C383DB"></div> Returning visitors</div>
+          </div>
+        </div>
+        <div class="daily-chart-wrap">
+          <div class="section-label">Last 7 Days</div>
+          <div class="daily-bars" id="daily-bars"></div>
+        </div>
+        <div class="top-searches">
+          <div class="section-label">Top Searches</div>
+          <div class="search-rank-list" id="search-rank-list">
+            <div style="font-size:12px;color:var(--text-faint);padding:8px 0;">No searches recorded yet.</div>
+          </div>
+        </div>
       </div>
-
-      <!-- Job type filter -->
-      <div class="type-row">
-        <span class="type-label">Type:</span>
-        <button class="type-btn active" data-type="Any"     onclick="setType(this)"><span class="type-dot"></span> Any</button>
-        <button class="type-btn"        data-type="Full-time" onclick="setType(this)"><span class="type-dot"></span> Full-time</button>
-        <button class="type-btn"        data-type="Part-time" onclick="setType(this)"><span class="type-dot"></span> Part-time</button>
-        <button class="type-btn"        data-type="Hybrid"    onclick="setType(this)"><span class="type-dot"></span> Hybrid</button>
-        <button class="type-btn"        data-type="Remote"    onclick="setType(this)"><span class="type-dot"></span> Remote</button>
+      <div class="stats-footer">
+        <span>Data stored locally in your browser · refreshes on each visit</span>
+        <button class="clear-stats-btn" onclick="clearAllStats()">Reset all data</button>
       </div>
-
-      <!-- Category pills -->
-      <div class="cats-scroll">
-        <span class="cats-label">Quick:</span>
-        <button class="cat-pill" data-query="Chief Financial Officer CFO Finance Director Head of Finance" onclick="setCategory(this)"><span class="cat-icon">◈</span> Finance</button>
-        <button class="cat-pill" data-query="Investment Banking Analyst Associate M&A Corporate Finance" onclick="setCategory(this)"><span class="cat-icon">◆</span> Investment Banking</button>
-        <button class="cat-pill" data-query="Treasury Manager Risk ERM ALM" onclick="setCategory(this)"><span class="cat-icon">◇</span> Treasury & Risk</button>
-        <button class="cat-pill" data-query="Accountant Senior Accountant Management Accountant ACCA ACA" onclick="setCategory(this)"><span class="cat-icon">◉</span> Accounting</button>
-        <button class="cat-pill" data-query="HR Manager Human Resources Talent Acquisition HRBP People Operations" onclick="setCategory(this)"><span class="cat-icon">▣</span> HR & People</button>
-        <button class="cat-pill" data-query="Software Engineer Backend Frontend Full Stack Developer" onclick="setCategory(this)"><span class="cat-icon">▶</span> Tech / Engineering</button>
-        <button class="cat-pill" data-query="Product Manager Product Owner Scrum Agile" onclick="setCategory(this)"><span class="cat-icon">⬡</span> Product</button>
-        <button class="cat-pill" data-query="Data Analyst Data Scientist Business Intelligence Power BI" onclick="setCategory(this)"><span class="cat-icon">◎</span> Data & Analytics</button>
-        <button class="cat-pill" data-query="Marketing Manager Digital Marketing Brand Manager SEO Growth" onclick="setCategory(this)"><span class="cat-icon">★</span> Marketing</button>
-        <button class="cat-pill" data-query="Legal Counsel Lawyer Corporate Lawyer Compliance Officer" onclick="setCategory(this)"><span class="cat-icon">⚖</span> Legal & Compliance</button>
-        <button class="cat-pill" data-query="Operations Manager Supply Chain Logistics Procurement" onclick="setCategory(this)"><span class="cat-icon">⬡</span> Operations</button>
-        <button class="cat-pill" data-query="Executive Assistant Personal Assistant Office Manager Administrative" onclick="setCategory(this)"><span class="cat-icon">◗</span> Admin</button>
-        <button class="cat-pill" data-query="Remote Finance Accounting CFO full remote work from home" onclick="setCategory(this)"><span class="cat-icon">◉</span> Remote Jobs</button>
-        <button class="cat-pill" data-query="Fintech Banking Operations Financial Services CBN licensed" onclick="setCategory(this)"><span class="cat-icon">◈</span> Fintech & Banking</button>
-        <button class="cat-pill" data-query="Sales Executive Business Development Account Manager B2B" onclick="setCategory(this)"><span class="cat-icon">▲</span> Sales & BizDev</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ STATUS TICKER ══ -->
-  <div class="status-ticker" id="status-ticker">
-    <div class="spin" id="status-spin"></div>
-    <div class="status-text" id="status-text">Scanning platforms…</div>
-    <div class="platforms-scanning" id="plat-chips">
-      <span class="plat-chip">LinkedIn</span>
-      <span class="plat-chip">Indeed</span>
-      <span class="plat-chip">Jobberman</span>
-      <span class="plat-chip">Glassdoor</span>
     </div>
   </div>
 
-  <!-- ══ RESULTS HEADER ══ -->
-  <div class="results-header" id="results-header">
-    <div>
-      <div class="res-count"><span id="count-num">0</span> jobs found</div>
-      <div class="res-meta" id="res-meta-text"></div>
-    </div>
-    <div class="res-timestamp">
-      <strong id="ts-label">—</strong>
-      <span id="ts-query"></span>
-    </div>
-  </div>
+  <script>
+    /* ══════════════════════════════════════
+       STATE
+    ══════════════════════════════════════ */
+    let debounceTimer = null;
+    let currentQuery = "";
+    let isSearching = false;
+    let selectedType = "Any"; 
 
-  <!-- ══ JOBS GRID ══ -->
-  <div class="jobs-grid" id="jobs-grid"></div>
+    const PLATFORM_COLORS = {
+      linkedin: "#0A66C2",
+      indeed: "#003A9B",
+      glassdoor: "#0CAA41",
+      jobberman: "#1E3A5F",
+      myjobmag: "#C0392B",
+      hotnigerianjobs: "#F39C12",
+      jobboardng: "#E35205",
+      ngcareers: "#6C3483",
+      default: "#444"
+    };
 
-  <!-- ══ EMPTY STATE ══ -->
-  <div class="empty-state" id="empty-state">
-    <div class="empty-glyph">◈</div>
-    <div class="empty-title">Start your search</div>
-    <p class="empty-body">Type any job title or keyword above — results appear automatically. Or tap a <strong>quick category</strong> to load today's listings instantly.</p>
-  </div>
+    function platformColor(name="") {
+      const k = name.toLowerCase().replace(/[^a-z]/g, "");
+      for (const key of Object.keys(PLATFORM_COLORS)) {
+        if (k.includes(key)) return PLATFORM_COLORS[key];
+      }
+      return PLATFORM_COLORS.default;
+    }
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="footer">
-    <div class="footer-left">
-      <strong>JobPulse</strong> — AI-powered live job intelligence<br>
-      Aggregates today's listings from 10+ platforms via web search
-    </div>
-    <div class="footer-platforms">
-      <span class="fp">LinkedIn</span>
-      <span class="fp">Indeed</span>
-      <span class="fp">Jobberman</span>
-      <span class="fp">MyJobMag</span>
-      <span class="fp">Glassdoor</span>
-      <span class="fp">HotNigerianJobs</span>
-      <span class="fp">JobBoardNG</span>
-      <span class="fp">Ngcareers</span>
-    </div>
-  </footer>
+    /* ── Live date ── */
+    document.getElementById("live-date").textContent = new Date().toLocaleDateString("en-NG", { weekday:"short", day:"numeric", month:"short", year:"numeric" });
 
-</div><!-- /shell -->
+    /* ══════════════════════════════════════
+       ANALYTICS ENGINE
+    ══════════════════════════════════════ */
+    const WORKER_URL = "https://job.elitesprince.workers.dev";
+    const STATS_KEY = "jp_stats";
+    const VISITOR_KEY = "jp_vid";
 
-<!-- ══ STATS OVERLAY ══ -->
-<div class="stats-overlay" id="stats-overlay" onclick="overlayClick(event)">
-  <div class="stats-panel">
-    <div class="stats-head">
-      <div class="stats-head-left">
-        <div class="stats-eyebrow">Blog Intelligence</div>
-        <div class="stats-title">Visitor Analytics</div>
-      </div>
-      <button class="stats-close" onclick="closeStats()">✕</button>
-    </div>
+    function loadStats() {
+      try {
+        return JSON.parse(localStorage.getItem(STATS_KEY)) || { totalVisits: 0, daily: {}, searches: {}, newVisitors: 0, returningVisitors: 0 };
+      } catch (e) {
+        return { totalVisits: 0, daily: {}, searches: {}, newVisitors: 0, returningVisitors: 0 };
+      }
+    }
 
-    <div class="stats-body">
-      <!-- KPIs -->
-      <div class="kpi-row">
-        <div class="kpi-card kpi-total">
-          <div class="kpi-label">Total Visits</div>
-          <div class="kpi-value" id="kpi-total">0</div>
-          <div class="kpi-sub">all time</div>
-        </div>
-        <div class="kpi-card kpi-today">
-          <div class="kpi-label">Today</div>
-          <div class="kpi-value" id="kpi-today">0</div>
-          <div class="kpi-sub" id="kpi-today-date">—</div>
-        </div>
-        <div class="kpi-card kpi-new">
-          <div class="kpi-label">New Visitors</div>
-          <div class="kpi-value" id="kpi-new">0</div>
-          <div class="kpi-sub" id="kpi-new-pct">—</div>
-        </div>
-        <div class="kpi-card kpi-return">
-          <div class="kpi-label">Returning</div>
-          <div class="kpi-value" id="kpi-return">0</div>
-          <div class="kpi-sub" id="kpi-return-pct">—</div>
-        </div>
-      </div>
+    function saveStats(s) {
+      localStorage.setItem(STATS_KEY, JSON.stringify(s));
+    }
 
-      <!-- New vs Returning bar -->
-      <div class="vtype-section">
-        <div class="section-label">Visitor Composition</div>
-        <div class="vtype-bar-wrap">
-          <div class="vtype-seg" id="vbar-new"    style="background:var(--blue);   width:50%;"></div>
-          <div class="vtype-seg" id="vbar-return" style="background:#C383DB; width:50%;"></div>
-        </div>
-        <div class="vtype-legend">
-          <div class="vtype-item"><div class="vtype-dot" style="background:var(--blue)"></div> New visitors</div>
-          <div class="vtype-item"><div class="vtype-dot" style="background:#C383DB"></div> Returning visitors</div>
-        </div>
-      </div>
+    function recordVisit() {
+      const s = loadStats();
+      const today = todayKey();
+      
+      s.totalVisits = (s.totalVisits || 0) + 1;
+      s.daily = s.daily || {};
+      s.daily[today] = (s.daily[today] || 0) + 1;
 
-      <!-- 7-day chart -->
-      <div class="daily-chart-wrap">
-        <div class="section-label">Last 7 Days</div>
-        <div class="daily-bars" id="daily-bars"></div>
-      </div>
+      if (!localStorage.getItem(VISITOR_KEY)) {
+        localStorage.setItem(VISITOR_KEY, "true");
+        s.newVisitors = (s.newVisitors || 0) + 1;
+      } else {
+        s.returningVisitors = (s.returningVisitors || 0) + 1;
+      }
+      saveStats(s);
+    }
 
-      <!-- Top searches -->
-      <div class="top-searches">
-        <div class="section-label">Top Searches</div>
-        <div class="search-rank-list" id="search-rank-list">
-          <div style="font-size:12px;color:var(--text-faint);padding:8px 0;">No searches recorded yet.</div>
-        </div>
-      </div>
-    </div>
+    function recordSearch(key) {
+      if (!key) return;
+      const s = loadStats();
+      s.searches = s.searches || {};
+      s.searches[key] = (s.searches[key] || 0) + 1;
+      saveStats(s);
+    }
 
-    <div class="stats-footer">
-      <span>Data stored locally in your browser · refreshes on each visit</span>
-      <button class="clear-stats-btn" onclick="clearAllStats()">Reset all data</button>
-    </div>
-  </div>
-</div>
+    function todayKey() { return new Date().toISOString().slice(0, 10); }
 
-<script>
-/* ══════════════════════════════════════
-   STATE
-══════════════════════════════════════ */
-let debounceTimer = null;
-let currentQuery  = "";
-let isSearching   = false;
-let selectedType  = "Any";   // job type filter
+    function last7Days() {
+      const days = [];
+      for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        days.push(d.toISOString().slice(0, 10));
+      }
+      return days;
+    }
 
-const PLATFORM_COLORS = {
-  linkedin:        "#0A66C2",
-  indeed:          "#003A9B",
-  glassdoor:       "#0CAA41",
-  jobberman:       "#1E3A5F",
-  myjobmag:        "#C0392B",
-  hotnigerianjobs: "#F39C12",
-  jobboardng:      "#E35205",
-  ngcareers:       "#6C3483",
-  default:         "#444"
-};
+    recordVisit();
 
-function platformColor(name="") {
-  const k = name.toLowerCase().replace(/[^a-z]/g, "");
-  for (const key of Object.keys(PLATFORM_COLORS))
-    if (k.includes(key)) return PLATFORM_COLORS[key];
-  return PLATFORM_COLORS.default;
-}
+    /* ══════════════════════════════════════
+       STATS PANEL
+    ══════════════════════════════════════ */
+    function openStats() {
+      renderStats();
+      document.getElementById("stats-overlay").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
 
-/* ── Live date ── */
-document.getElementById("live-date").textContent =
-  new Date().toLocaleDateString("en-NG", { weekday:"short", day:"numeric", month:"short", year:"numeric" });
+    function closeStats() {
+      document.getElementById("stats-overlay").classList.remove("open");
+      document.body.style.overflow = "";
+    }
 
-/* ══════════════════════════════════════
-   ANALYTICS ENGINE
-   Uses localStorage — no server needed.
-   Tracks: total visits, daily visits,
-   new vs returning, top search terms.
-══════════════════════════════════════ */
-/* ══════════════════════════════════════
-   WORKER CONFIG
-   Replace the URL below with your own
-   Cloudflare Worker URL after deploying.
-══════════════════════════════════════ */
-const WORKER_URL = "https://job.elitesprince.workers.dev
-";
+    function overlayClick(e) {
+      if (e.target === document.getElementById("stats-overlay")) closeStats();
+    }
 
-const STATS_KEY   = "jp_stats";
-const VISITOR_KEY = "jp_vid";
-
-function loadStats() {
-  try { return JSON.parse(localStorage.getItem(STATS_KEY)) || defaultStats(); }
-  catch { return defaultStats(); }
-}
-function saveStats(s) {
-  try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch {}
-}
-function defaultStats() {
-  return { totalVisits: 0, newVisitors: 0, returningVisitors: 0, daily: {}, searches: {} };
-}
-
-function recordVisit() {
-  const s = loadStats();
-  const today = todayKey();
-
-  // Is this visitor new or returning?
-  let vid = localStorage.getItem(VISITOR_KEY);
-  const isNew = !vid;
-  if (isNew) {
-    vid = "v_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
-    localStorage.setItem(VISITOR_KEY, vid);
-    s.newVisitors = (s.newVisitors || 0) + 1;
-  } else {
-    s.returningVisitors = (s.returningVisitors || 0) + 1;
-  }
-
-  s.totalVisits = (s.totalVisits || 0) + 1;
-  s.daily[today] = (s.daily[today] || 0) + 1;
-  saveStats(s);
-}
-
-function recordSearch(term) {
-  if (!term || term.length < 3) return;
-  const s = loadStats();
-  const key = term.toLowerCase().trim().slice(0, 40);
-  s.searches[key] = (s.searches[key] || 0) + 1;
-  saveStats(s);
-}
-
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function last7Days() {
-  const days = [];
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date(); d.setDate(d.getDate() - i);
-    days.push(d.toISOString().slice(0, 10));
-  }
-  return days;
-}
-
-/* ── Run on page load ── */
-recordVisit();
-
-/* ══════════════════════════════════════
-   STATS PANEL
-══════════════════════════════════════ */
-function openStats() {
-  renderStats();
-  document.getElementById("stats-overlay").classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-function closeStats() {
-  document.getElementById("stats-overlay").classList.remove("open");
-  document.body.style.overflow = "";
-}
-function overlayClick(e) {
-  if (e.target === document.getElementById("stats-overlay")) closeStats();
-}
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeStats(); });
-
-function renderStats() {
-  const s = loadStats();
-  const today = todayKey();
-  const total   = s.totalVisits || 0;
-  const todayV  = (s.daily || {})[today] || 0;
-  const newV    = s.newVisitors || 0;
-  const retV    = s.returningVisitors || 0;
-
-  document.getElementById("kpi-total").textContent  = total.toLocaleString();
-  document.getElementById("kpi-today").textContent  = todayV.toLocaleString();
-  document.getElementById("kpi-today-date").textContent =
-    new Date().toLocaleDateString("en-NG", { day:"numeric", month:"short" });
-  document.getElementById("kpi-new").textContent    = newV.toLocaleString();
-  document.getElementById("kpi-return").textContent = retV.toLocaleString();
-
-  const totalVis = newV + retV || 1;
-  const newPct   = Math.round(newV / totalVis * 100);
-  const retPct   = 100 - newPct;
-  document.getElementById("kpi-new-pct").textContent    = newPct + "% of visitors";
-  document.getElementById("kpi-return-pct").textContent = retPct + "% of visitors";
-
-  // Composition bar
-  document.getElementById("vbar-new").style.width    = newPct + "%";
-  document.getElementById("vbar-return").style.width = retPct + "%";
-
-  // 7-day bars
-  const days = last7Days();
-  const daily = s.daily || {};
-  const maxVal = Math.max(1, ...days.map(d => daily[d] || 0));
-  const barsEl = document.getElementById("daily-bars");
-  barsEl.innerHTML = "";
-  days.forEach(d => {
-    const val = daily[d] || 0;
-    const pct = Math.round((val / maxVal) * 100);
-    const isToday = d === today;
-    const label = new Date(d + "T12:00:00").toLocaleDateString("en-NG", { weekday: "short" });
-    barsEl.innerHTML += `
-      <div class="daily-bar-col">
-        <div class="daily-bar-val">${val > 0 ? val : ""}</div>
-        <div class="daily-bar ${isToday ? "today" : ""}" style="height:${Math.max(pct, 2)}%"></div>
-        <div class="daily-bar-label">${label}</div>
-      </div>`;
-  });
-
-  // Top searches
-  const searches = s.searches || {};
-  const sorted = Object.entries(searches).sort((a,b) => b[1]-a[1]).slice(0, 7);
-  const rankEl = document.getElementById("search-rank-list");
-  if (!sorted.length) {
-    rankEl.innerHTML = `<div style="font-size:12px;color:var(--text-faint);padding:8px 0;">No searches recorded yet.</div>`;
-    return;
-  }
-  const maxCount = sorted[0][1] || 1;
-  rankEl.innerHTML = sorted.map(([term, count], i) => {
-    const barW = Math.round(count / maxCount * 100);
-    return `
-      <div class="search-rank-item" style="position:relative;overflow:hidden;">
-        <div class="rank-bar-bg" style="width:${barW}%"></div>
-        <span class="rank-num">${i+1}</span>
-        <span class="rank-term">${esc(term)}</span>
-        <span class="rank-count">${count} search${count!==1?"es":""}</span>
-      </div>`;
-  }).join("");
-}
-
-function clearAllStats() {
-  if (!confirm("Reset all analytics data? This cannot be undone.")) return;
-  localStorage.removeItem(STATS_KEY);
-  localStorage.removeItem(VISITOR_KEY);
-  renderStats();
-}
-
-/* ══════════════════════════════════════
-   JOB TYPE FILTER
-══════════════════════════════════════ */
-function setType(btn) {
-  document.querySelectorAll(".type-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  selectedType = btn.dataset.type;
-  // Re-run search if there's already a query loaded
-  const val = document.getElementById("search-input").value.trim();
-  if (val) doSearch(val);
-}
-
-/* ══════════════════════════════════════
-   CATEGORY PILL CLICK
-══════════════════════════════════════ */
-function setCategory(btn) {
-  document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
-  btn.classList.add("active");
-  const q = btn.dataset.query;
-  document.getElementById("search-input").value = q;
-  doSearch(q);
-}
-
-/* ══════════════════════════════════════
-   INPUT AUTO-TRIGGER WITH DEBOUNCE
-══════════════════════════════════════ */
-document.getElementById("search-input").addEventListener("input", function() {
-  const val = this.value.trim();
-  document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
-  if (!val) { showEmpty(); stopTypingBar(); return; }
-  startTypingBar();
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => { stopTypingBar(); doSearch(val); }, 1800);
-});
-
-document.getElementById("search-input").addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    clearTimeout(debounceTimer);
-    stopTypingBar();
-    const val = this.value.trim();
-    if (val) doSearch(val);
-  }
-});
-
-function triggerSearch() {
-  clearTimeout(debounceTimer);
-  stopTypingBar();
-  const val = document.getElementById("search-input").value.trim();
-  if (val) doSearch(val);
-}
-
-/* ══════════════════════════════════════
-   TYPING BAR
-══════════════════════════════════════ */
-function startTypingBar() {
-  const bar  = document.getElementById("typing-bar");
-  const prog = document.getElementById("typing-progress");
-  bar.classList.add("active");
-  prog.classList.remove("fill");
-  prog.style.transition = "none";
-  prog.style.width = "0%";
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    prog.style.transition = "width 1.8s linear";
-    prog.classList.add("fill");
-  }));
-}
-function stopTypingBar() {
-  const bar  = document.getElementById("typing-bar");
-  const prog = document.getElementById("typing-progress");
-  bar.classList.remove("active");
-  prog.classList.remove("fill");
-  prog.style.width = "0%";
-}
-
-/* ══════════════════════════════════════
-   SEARCH ENGINE
-══════════════════════════════════════ */
-async function doSearch(query) {
-  if (isSearching) return;
-  isSearching  = true;
-  currentQuery = query;
-
-  const loc      = document.getElementById("loc-select").value;
-  const typeStr  = selectedType === "Any" ? "" : ` ${selectedType}`;
-  const fullQ    = `${query}${typeStr} jobs in ${loc}`;
-  const typeNote = selectedType === "Any" ? "" : ` Filter strictly to ${selectedType} roles only.`;
-
-  recordSearch(query);   // ← track this search term
-
-  setStatus(`Scanning for "${query}"${selectedType !== "Any" ? ` · ${selectedType}` : ""} in ${loc}…`, false);
-  hideEmpty();
-  hideResultsHeader();
-  clearGrid();
-
-  const system = `You are a job search aggregator. Use web search to find job listings posted TODAY or in the last 48 hours.
-Return ONLY a valid JSON array — no markdown, no backticks, no explanation.${typeNote}
-
-Each object must have:
-- title (string)
-- company (string)
-- location (string)
-- platform (string: e.g. LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, JobBoardNG, Ngcareers, etc.)
-- posted (string: "Today", "2h ago", "Yesterday", etc.)
-- type (string: "Full-time", "Part-time", "Hybrid", "Remote", "Contract", etc.)
-- salary (string or null)
-- summary (string: 2–3 sentences)
-- requirements (array of 3–4 strings)
-- url (string or null)
-- category (string: one of Finance, Technology, HR, Marketing, Legal, Operations, Data, Product, Sales, Admin, Other)
-
-Return 10–16 results. Prefer freshly posted roles.`;
-
-  const user = `Search query: "${fullQ}"
-Today: ${new Date().toISOString().split("T")[0]}
-Find jobs posted in the last 24-48 hours across LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, and any other relevant job boards.${typeNote}
-Return JSON array only.`;
-
-  try {
-    const res = await fetch(WORKER_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 4000,
-        system,
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
-        messages: [{ role: "user", content: user }]
-      })
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeStats();
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.error?.message || `Server error (${res.status}). Check your Worker is deployed.`);
+    function renderStats() {
+      const s = loadStats();
+      const today = todayKey();
+      const total = s.totalVisits || 0;
+      const todayV = (s.daily || {})[today] || 0;
+      const newV = s.newVisitors || 0;
+      const retV = s.returningVisitors || 0;
+
+      document.getElementById("kpi-total").textContent = total.toLocaleString();
+      document.getElementById("kpi-today").textContent = todayV.toLocaleString();
+      document.getElementById("kpi-today-date").textContent = new Date().toLocaleDateString("en-NG", { day:"numeric", month:"short" });
+      document.getElementById("kpi-new").textContent = newV.toLocaleString();
+      document.getElementById("kpi-return").textContent = retV.toLocaleString();
+
+      const totalVis = newV + retV || 1;
+      const newPct = Math.round(newV / totalVis * 100);
+      const retPct = 100 - newPct;
+
+      document.getElementById("kpi-new-pct").textContent = newPct + "% of visitors";
+      document.getElementById("kpi-return-pct").textContent = retPct + "% of visitors";
+
+      document.getElementById("vbar-new").style.width = newPct + "%";
+      document.getElementById("vbar-return").style.width = retPct + "%";
+
+      const days = last7Days();
+      const daily = s.daily || {};
+      const maxVal = Math.max(1, ...days.map(d => daily[d] || 0));
+      const barsEl = document.getElementById("daily-bars");
+      barsEl.innerHTML = "";
+
+      days.forEach(d => {
+        const val = daily[d] || 0;
+        const pct = Math.round((val / maxVal) * 100);
+        const isToday = d === today;
+        const label = new Date(d + "T12:00:00").toLocaleDateString("en-NG", { weekday: "short" });
+        barsEl.innerHTML += `
+          <div class="daily-bar-col">
+            <div class="daily-bar-val">${val > 0 ? val : ""}</div>
+            <div class="daily-bar ${isToday ? 'today' : ''}" style="height:${Math.max(pct, 2)}%"></div>
+            <div class="daily-bar-label">${label}</div>
+          </div>`;
+      });
+
+      const listEl = document.getElementById("search-rank-list");
+      const searchArr = Object.entries(s.searches || {}).sort((a,b) => b[1] - a[1]).slice(0, 5);
+      
+      if (!searchArr.length) {
+        listEl.innerHTML = `<div style="font-size:12px;color:var(--text-faint);padding:8px 0;">No searches recorded yet.</div>`;
+        return;
+      }
+
+      const maxSearch = searchArr[0][1] || 1;
+      listEl.innerHTML = searchArr.map(([term, count], idx) => {
+        const w = Math.round((count / maxSearch) * 100);
+        return `
+          <div class="search-rank-item">
+            <div class="rank-bar-bg" style="width:${w}%"></div>
+            <span class="rank-num">${String(idx+1).padStart(2, '0')}</span>
+            <span class="rank-term">${esc(term)}</span>
+            <span class="rank-count">${count} search${count!==1?'es':''}</span>
+          </div>`;
+      }).join("");
     }
 
-    const data = await res.json();
-    let raw = "";
-    for (const block of (data.content || []))
-      if (block.type === "text") raw += block.text;
-
-    const clean = raw.replace(/```json|```/gi, "").trim();
-    const s = clean.indexOf("["), e = clean.lastIndexOf("]");
-    if (s === -1 || e === -1) throw new Error("No JSON array returned.");
-    const jobs = JSON.parse(clean.slice(s, e + 1));
-
-    hideStatus();
-    renderJobs(jobs, query, loc);
-  } catch (err) {
-    setStatus(`⚠ ${err.message}`, true);
-    showEmpty();
-  } finally {
-    isSearching = false;
-  }
-}
-
-/* ══════════════════════════════════════
-   RENDER
-══════════════════════════════════════ */
-function renderJobs(jobs, query, loc) {
-  if (!jobs.length) { showEmpty(); return; }
-
-  const typeLabel = selectedType !== "Any" ? ` · ${selectedType.toUpperCase()}` : "";
-  document.getElementById("count-num").textContent = jobs.length;
-  document.getElementById("res-meta-text").textContent =
-    `${query.toUpperCase()} · ${loc.toUpperCase()}${typeLabel}`;
-  document.getElementById("ts-label").textContent =
-    new Date().toLocaleTimeString("en-NG", { hour: "2-digit", minute: "2-digit" });
-  document.getElementById("ts-query").textContent = "Last updated";
-  document.getElementById("results-header").classList.add("visible");
-
-  const grid = document.getElementById("jobs-grid");
-  grid.innerHTML = "";
-
-  jobs.forEach((job, i) => {
-    const card  = document.createElement("div");
-    card.className = "job-card";
-    card.style.animationDelay = `${i * 55}ms`;
-
-    const color  = platformColor(job.platform || "");
-    const salary = job.salary ? `<span class="tag salary">💰 ${esc(job.salary)}</span>` : "";
-
-    // type badge with colour coding
-    let typeBadge = "";
-    if (job.type) {
-      const t = (job.type || "").toLowerCase();
-      const typeColor = t.includes("remote") ? "var(--remote-c,#C383DB)"
-        : t.includes("hybrid")   ? "var(--blue)"
-        : t.includes("part")     ? "var(--gold)"
-        : t.includes("full")     ? "var(--accent)"
-        : "var(--text-dim)";
-      typeBadge = `<span class="tag" style="color:${typeColor};border-color:${typeColor}33;background:${typeColor}11">${esc(job.type)}</span>`;
+    function clearAllStats() {
+      if (!confirm("Reset all analytics data? This cannot be undone.")) return;
+      localStorage.removeItem(STATS_KEY);
+      localStorage.removeItem(VISITOR_KEY);
+      renderStats();
     }
 
-    const reqs = (job.requirements || []).slice(0, 4).map(r => `<li>${esc(r)}</li>`).join("");
-    const applyBtn = job.url
-      ? `<a class="apply-link" href="${esc(job.url)}" target="_blank" rel="noopener">Apply Now <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
-      : `<span style="font-size:11px;color:var(--text-faint);">Search on platform to apply</span>`;
+    /* ══════════════════════════════════════
+       JOB TYPE FILTER
+    ══════════════════════════════════════ */
+    function setType(btn) {
+      document.querySelectorAll(".type-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedType = btn.dataset.type;
 
-    card.innerHTML = `
-      <div class="card-row1">
-        <span class="platform-tag" style="background:${color}">${esc(job.platform||"Job Board")}</span>
-        <span class="posted-age">${esc(job.posted||"Recently")}</span>
-      </div>
-      <div class="job-title">${esc(job.title)}</div>
-      <div class="job-company">${esc(job.company)}</div>
-      <div class="job-tags">
-        ${job.location ? `<span class="tag">📍 ${esc(job.location)}</span>` : ""}
-        ${typeBadge}${salary}
-      </div>
-      <div class="expand-toggle">
-        <span>Details</span>
-        <svg class="expand-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="job-detail">
-        <p class="job-summary">${esc(job.summary||"")}</p>
-        ${reqs ? `<ul class="req-list">${reqs}</ul>` : ""}
-        ${applyBtn}
-      </div>`;
+      const val = document.getElementById("search-input").value.trim();
+      if (val) doSearch(val);
+    }
 
-    card.addEventListener("click", () => card.classList.toggle("open"));
-    grid.appendChild(card);
-  });
-}
+    /* ══════════════════════════════════════
+       CATEGORY PILL CLICK
+    ══════════════════════════════════════ */
+    function setCategory(btn) {
+      document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      const q = btn.dataset.query;
+      document.getElementById("search-input").value = q;
+      doSearch(q);
+    }
 
-/* ══════════════════════════════════════
-   HELPERS
-══════════════════════════════════════ */
-function esc(str) {
-  return String(str||"")
-    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
-function clearGrid()         { document.getElementById("jobs-grid").innerHTML = ""; }
-function showEmpty()         { document.getElementById("empty-state").style.display = "block"; }
-function hideEmpty()         { document.getElementById("empty-state").style.display = "none"; }
-function hideResultsHeader() { document.getElementById("results-header").classList.remove("visible"); }
-function setStatus(msg, isError) {
-  const t     = document.getElementById("status-ticker");
-  const txt   = document.getElementById("status-text");
-  const spin  = document.getElementById("status-spin");
-  const chips = document.getElementById("plat-chips");
-  t.classList.add("visible");
-  t.classList.toggle("err", !!isError);
-  txt.textContent = msg;
-  spin.style.display  = isError ? "none" : "block";
-  chips.style.display = isError ? "none" : "flex";
-}
-function hideStatus() { document.getElementById("status-ticker").classList.remove("visible"); }
-</script>
+    /* ══════════════════════════════════════
+       INPUT AUTO-TRIGGER WITH DEBOUNCE
+    ══════════════════════════════════════ */
+    document.getElementById("search-input").addEventListener("input", function() {
+      const val = this.value.trim();
+      document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
+      if (!val) {
+        showEmpty();
+        stopTypingBar();
+        return;
+      }
+      startTypingBar();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        stopTypingBar();
+        doSearch(val);
+      }, 1800);
+    });
+
+    document.getElementById("search-input").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        clearTimeout(debounceTimer);
+        stopTypingBar();
+        const val = this.value.trim();
+        if (val) doSearch(val);
+      }
+    });
+
+    function triggerSearch() {
+      clearTimeout(debounceTimer);
+      stopTypingBar();
+      const val = document.getElementById("search-input").value.trim();
+      if (val) doSearch(val);
+    }
+
+    /* ══════════════════════════════════════
+       TYPING BAR
+    ══════════════════════════════════════ */
+    function startTypingBar() {
+      const bar = document.getElementById("typing-bar");
+      const prog = document.getElementById("typing-progress");
+      bar.classList.add("active");
+      prog.classList.remove("fill");
+      prog.style.transition = "none";
+      prog.style.width = "0%";
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        prog.style.transition = "width 1.8s linear";
+        prog.classList.add("fill");
+      }));
+    }
+
+    function stopTypingBar() {
+      const bar = document.getElementById("typing-bar");
+      const prog = document.getElementById("typing-progress");
+      bar.classList.remove("active");
+      prog.classList.remove("fill");
+      prog.style.width = "0%";
+    }
+
+    /* ══════════════════════════════════════
+       SEARCH ENGINE
+    ══════════════════════════════════════ */
+    async function doSearch(query) {
+      if (isSearching) return;
+      isSearching = true;
+      currentQuery = query;
+
+      const loc = document.getElementById("loc-select").value;
+      const typeStr = selectedType === "Any" ? "" : ` ${selectedType}`;
+      const fullQ = `${query}${typeStr} in ${loc}`;
+
+      setStatus(`Scanning platforms for "${query}"…`);
+      hideEmpty();
+      clearGrid();
+      recordSearch(query);
+
+      const typeNote = selectedType === "Any" ? "" : ` Filter for ${selectedType} roles.`;
+      const system = `You are a real-time job aggregation engine. Use web_search to find active, actual job listings matching the user's prompt exactly. Extract details from the results. Return raw valid JSON matching this schema:
+      Array of objects with keys:
+      - title (string)
+      - company (string)
+      - platform (string: LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, etc.)
+      - posted (string: e.g., "2 hours ago", "Today", "1 day ago")
+      - location (string)
+      - type (string: "Full-time", "Part-time", "Hybrid", "Remote", "Contract", etc.)
+      - salary (string or null)
+      - summary (string: 2–3 sentences)
+      - requirements (array of 3–4 strings)
+      - url (string or null)
+      - category (string: one of Finance, Technology, HR, Marketing, Legal, Operations, Data, Product, Sales, Admin, Other)
+      Return 10–16 results. Prefer freshly posted roles.`;
+
+      const user = `Search query: "${fullQ}" Today: ${new Date().toISOString().split('T')[0]} Find jobs posted in the last 24-48 hours across LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, and any other relevant job boards.${typeNote} Return JSON array only.`;
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 4000,
+            system,
+            tools: [{ type: "web_search_20250305", name: "web_search" }],
+            messages: [{ role: "user", content: user }]
+          })
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error?.message || `Server error (${res.status}). Check your Worker is deployed.`);
+        }
+
+        const data = await res.json();
+        let raw = "";
+        for (const block of (data.content || [])) {
+          if (block.type === "text") raw += block.text;
+        }
+
+        const clean = raw.replace(/```json|```/gi, "").trim();
+        const s = clean.indexOf("["), e = clean.lastIndexOf("]");
+        if (s === -1 || e === -1) throw new Error("No JSON array returned.");
+        
+        const jobs = JSON.parse(clean.slice(s, e + 1));
+        hideStatus();
+        renderJobs(jobs, query, loc);
+      } catch (err) {
+        setStatus(`⚠ ${err.message}`, true);
+        showEmpty();
+      } finally {
+        isSearching = false;
+      }
+    }
+
+    /* ══════════════════════════════════════
+       RENDER
+    ══════════════════════════════════════ */
+    function renderJobs(jobs, query, loc) {
+      if (!jobs.length) {
+        showEmpty();
+        return;
+      }
+      
+      const typeLabel = selectedType !== "Any" ? ` · ${selectedType.toUpperCase()}` : "";
+      document.getElementById("count-num").textContent = jobs.length;
+      document.getElementById("res-meta-text").textContent = `Live listings matching "${query}" in ${loc}${typeLabel}`;
+      document.getElementById("ts-label").textContent = new Date().toLocaleTimeString("en-NG", { hour: '2-digit', minute: '2-digit' });
+      document.getElementById("ts-query").textContent = `for "${query}"`;
+      document.getElementById("results-header").classList.add("visible");
+
+      const grid = document.getElementById("jobs-grid");
+      grid.innerHTML = "";
+
+      jobs.forEach(job => {
+        const card = document.createElement("div");
+        card.className = "job-card";
+        const color = platformColor(job.platform);
+
+        const salTag = job.salary ? `<span class="tag salary">₦ ${esc(job.salary)}</span>` : "";
+        const remTag = String(job.type || "").toLowerCase().includes("remote") || String(job.location || "").toLowerCase().includes("remote") ? `<span class="tag remote">Remote</span>` : "";
+        const typeTag = job.type && !remTag ? `<span class="tag">${esc(job.type)}</span>` : "";
+        const locTag = job.location ? `<span class="tag">📍 ${esc(job.location)}</span>` : "";
+
+        let reqs = "";
+        if (Array.isArray(job.requirements)) {
+          reqs = job.requirements.slice(0, 4).map(r => `<li>${esc(r)}</li>`).join("");
+        }
+
+        const applyBtn = job.url ? 
+          `<a class="apply-link" href="${esc(job.url)}" target="_blank" rel="noopener">Apply Now <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>` : 
+          `<span style="font-size:11px;color:var(--text-faint);">Search on platform to apply</span>`;
+
+        card.innerHTML = `
+          <div class="card-row1">
+            <span class="platform-tag" style="background:${color}">${esc(job.platform||"Job Board")}</span>
+            <span class="posted-age">${esc(job.posted||"Recently")}</span>
+          </div>
+          <div class="job-title">${esc(job.title)}</div>
+          <div class="job-company">${esc(job.company)}</div>
+          <div class="job-tags">
+            ${salTag} ${remTag} ${typeTag} ${locTag}
+          </div>
+          <div class="expand-toggle">
+            Details 
+            <svg class="expand-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="job-detail">
+            <p class="job-summary">${esc(job.summary||"")}</p>
+            ${reqs ? `<ul class="req-list">${reqs}</ul>` : ""}
+            ${applyBtn}
+          </div>`;
+
+        card.addEventListener("click", () => card.classList.toggle("open"));
+        grid.appendChild(card);
+      });
+    }
+
+    /* ══════════════════════════════════════
+       HELPERS
+    ══════════════════════════════════════ */
+    function esc(str) {
+      return String(str||"")
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function clearGrid()         { document.getElementById("jobs-grid").innerHTML = ""; }
+    function showEmpty()         { document.getElementById("empty-state").style.display = "block"; }
+    function hideEmpty()         { document.getElementById("empty-state").style.display = "none"; }
+    function hideResultsHeader() { document.getElementById("results-header").classList.remove("visible"); }
+    
+    function setStatus(msg, isError) {
+      const t     = document.getElementById("status-ticker");
+      const txt   = document.getElementById("status-text");
+      const spin  = document.getElementById("status-spin");
+      const chips = document.getElementById("plat-chips");
+      t.classList.add("visible");
+      t.classList.toggle("err", !!isError);
+      txt.textContent = msg;
+      if (isError) {
+        spin.style.display = "none";
+        chips.style.display = "none";
+      } else {
+        spin.style.display = "block";
+        chips.style.display = "flex";
+      }
+    }
+
+    function hideStatus() {
+      document.getElementById("status-ticker").classList.remove("visible");
+    }
+  </script>
 </body>
 </html>
